@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Торт на заказ — Зелёное Царство</title>
+  <meta name="description" content="Заявка на бенто-торт «Зелёного Царства»: дата праздника, вес, начинка, надпись и пожелания. Стоимость и срок подтверждает менеджер.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/components-v2.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pages-v2.css">
+</head>
+<body class="is-stone">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="ip cake wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <a href="catalog.html">Десерты</a>  /  <span aria-current="page">Торт на заказ</span></nav>
+    <h1 class="display ip__title">Торт на заказ</h1>
+    <p class="ip__intro">Выберите основу, укажите дату и пожелания. Менеджер подтвердит возможность, срок и итоговую стоимость до оплаты.</p>
+    <div class="ip__rule"></div>
+
+    <div class="ip__body media">
+      <div>
+        <div class="media__ph"><img src="img/tropicheskoe-naslazhdenie.webp" alt="Бенто-торт «Тропическое наслаждение»" width="1200" height="1698"></div>
+        <h2 class="cake__name">Бенто «Тропическое наслаждение»</h2>
+        <p class="cake__price">500 г  ·  2 500 ₽</p>
+        <dl class="cake__facts">
+          <div><dt>Начинка</dt><dd>По ассортименту — менеджер предложит доступные варианты</dd></div>
+          <div><dt>Надпись</dt><dd>По согласованию с производством</dd></div>
+          <div><dt>Срок и предоплата</dt><dd>Называет менеджер при подтверждении заявки</dd></div>
+          <div><dt>Получение</dt><dd>Самовывоз или доставка по вторникам и пятницам</dd></div>
+        </dl>
+      </div>
+
+      <div class="media__body">
+        <form class="form cake__form" data-order-form novalidate>
+          <div class="form__row">
+            <label class="field" data-required>
+              <span class="field__label">Дата праздника</span>
+              <input type="date" name="date" required data-min-days="3">
+              <span class="field__error">Укажите дату</span>
+            </label>
+            <label class="field">
+              <span class="field__label">Вес</span>
+              <select name="weight">
+                <option>500 г — бенто</option>
+                <option>Другой вес — обсудим</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Начинка</span>
+            <select name="filling">
+              <option>Тропическое наслаждение</option>
+              <option>Другая — подскажите варианты</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Надпись на торте</span>
+            <input type="text" name="inscription" maxlength="30" placeholder="Например: С днём рождения!">
+            <span class="field__hint">До 30 символов. Возможность надписи подтвердит менеджер.</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Пожелания к оформлению</span>
+            <textarea name="wishes" placeholder="Цвета, повод, пример оформления"></textarea>
+          </label>
+          <div class="form__row">
+            <label class="field" data-required>
+              <span class="field__label">Имя</span>
+              <input type="text" name="name" autocomplete="given-name" required>
+              <span class="field__error">Как к вам обращаться?</span>
+            </label>
+            <label class="field" data-required>
+              <span class="field__label">Телефон</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <span class="field__error">Укажите телефон для связи</span>
+            </label>
+          </div>
+          <div class="field">
+            <span class="field__label">Как связаться</span>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="channel" value="Звонок" checked>Позвонить</label>
+              <label class="chip"><input type="radio" name="channel" value="Telegram">Telegram</label>
+            </div>
+          </div>
+          <label class="check" data-required-check>
+            <input type="checkbox" name="consent" required>
+            <span>Согласен(-на) на <a href="consent.html">обработку персональных данных</a> и с <a href="policy.html">политикой конфиденциальности</a></span>
+          </label>
+          <button class="btn btn--primary" type="submit">Обсудить заказ</button>
+          <p class="cake__note">Дизайн, срок и итоговую цену подтверждаем до оплаты.</p>
+
+          <div class="form__done" role="status">
+            <h3>Заявка принята</h3>
+            <p>Менеджер свяжется с вами с 10:00 до 19:00, уточнит детали и подтвердит стоимость. Срочный вопрос — <a href="tel:+79893573333">+7 (989) 357-33-33</a>.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section class="ip__sec">
+      <h2 class="ip__h2">Как проходит заказ</h2>
+      <div class="grid-3">
+        <div class="plate plate--soft"><p class="plate__num">01  /  ЗАЯВКА</p><h3 class="plate__title">Опишите торт</h3><p class="plate__text">Дата, вес, начинка, надпись и пожелания к оформлению.</p></div>
+        <div class="plate plate--silver"><p class="plate__num">02  /  ПОДТВЕРЖДЕНИЕ</p><h3 class="plate__title">Согласуем детали</h3><p class="plate__text">Менеджер подтвердит возможность изготовления, срок, стоимость и предоплату.</p></div>
+        <div class="plate plate--soft"><p class="plate__num">03  /  ПОЛУЧЕНИЕ</p><h3 class="plate__title">Заберите или получите</h3><p class="plate__text">Самовывоз из ТРК «Гранд Каньон» или «Меркурий», доставка по вторникам и пятницам.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

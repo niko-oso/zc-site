@@ -1,0 +1,119 @@
+/* ==========================================================================
+   База: сброс, типографика, контейнер, утилиты
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--zc-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  color: var(--zc-ink);
+  background: var(--zc-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+body.is-stone { background: var(--zc-stone); }
+
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):not(.check):has(:focus-visible) {
+  outline: 2px solid var(--zc-olive); outline-offset: 3px;
+}
+/* поля формы подсвечиваются своей рамкой (.field input:focus); у чекбокса — рамка на квадрате при клавиатуре */
+.check input:focus-visible { outline: 2px solid var(--zc-paper); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.pre { white-space: pre; }            /* сохраняет «воздух» из пробелов, как в макете */
+.pre-wrap { white-space: pre-wrap; }
+
+/* ---------- Контейнер ----------
+   Макет 1440, поля 72/34/22. На широких экранах контент центрируется. */
+.wrap {
+  width: 100%;
+  max-width: var(--zc-frame);
+  margin-inline: auto;
+  padding-inline: var(--zc-gutter);
+}
+
+/* ---------- Видимость по брейкпоинтам ----------
+   desktop ≥1200 · tablet 640–1199 · mobile ≤639 */
+@media (min-width: 1200px) { .only-t, .only-m, .hide-d { display: none !important; } }
+@media (min-width: 640px) and (max-width: 1199px) { .only-d, .only-m, .hide-t { display: none !important; } }
+@media (max-width: 639px) { .only-d, .only-t, .hide-m { display: none !important; } }
+
+/* ---------- Типографика (Onest) ----------
+   Имена = размер на desktop; на tablet/mobile страницы задают свои значения. */
+.t-label   { font-size: 12px; line-height: 17px; font-weight: 500; letter-spacing: 0; } /* КАПС-подписи */
+.t-crumbs  { font-size: 13px; line-height: 18px; }
+.t-small   { font-size: 14px; line-height: 19px; }
+.t-body-15 { font-size: 15px; line-height: 21px; }
+.t-body    { font-size: 16px; line-height: 22px; }
+.t-body-17 { font-size: 17px; line-height: 23px; }
+.t-lead    { font-size: 18px; line-height: 25px; }
+.t-lead-19 { font-size: 19px; line-height: 26px; }
+.t-lead-21 { font-size: 21px; line-height: 29px; }
+.t-quote   { font-size: 29px; line-height: 40px; }
+.t-h4      { font-size: 24px; line-height: 33px; font-weight: 500; }
+.t-h3      { font-size: 27px; line-height: 37px; font-weight: 500; }
+.t-h2      { font-size: 30px; line-height: 41px; font-weight: 500; }
+.t-medium  { font-weight: 500; }
+
+.c-paper { color: var(--zc-paper); }
+.c-ink   { color: var(--zc-ink); }
+.c-olive { color: var(--zc-olive); }
+.c-muted { color: var(--zc-muted); }
+
+/* ==========================================================================
+   Display-заголовки (шрифт Panama)
+   Пока нет веб-шрифта, заголовок = SVG-кривые из Figma.
+   .ttl повторяет текстовый бокс из макета (--bw × --bh), а картинка внутри
+   стоит со смещением глифов (--ox/--oy) — так позиции совпадают 1 в 1.
+   --s — масштаб относительно desktop (задаётся на tablet/mobile).
+   ========================================================================== */
+.ttl {
+  --s: 1;
+  position: relative;
+  display: block;
+  flex: none;
+  width: calc(var(--bw) * var(--s) * 1px);
+  max-width: 100%;
+  height: calc(var(--bh) * var(--s) * 1px);
+  margin: 0;
+  font-weight: 400;
+}
+.ttl > img {
+  position: absolute;
+  left: calc(var(--ox, 0) * var(--s) * 1px);
+  top: calc(var(--oy, 0) * var(--s) * 1px);
+  width: calc(var(--iw) * var(--s) * 1px);
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+/* Реестр заголовков: бокс текста в Figma + смещение и ширина SVG */
+.ttl--otrazhenie { --bw: 588;     --bh: 230.05; --ox: 4.96; --oy: 7.30;  --iw: 577; }
+.ttl--bud        { --bw: 366.954; --bh: 78.009; --ox: 3.10; --oy: 8.80;  --iw: 149; }
+.ttl--soboi      { --bw: 366.954; --bh: 78.009; --ox: 3.48; --oy: 7.64;  --iw: 194; }
+.ttl--zaryadis   { --bw: 330;     --bh: 78.009; --ox: 3.10; --oy: 7.64;  --iw: 313; }
+.ttl--tvori      { --bw: 366.954; --bh: 78.009; --ox: 2.71; --oy: 25.84; --iw: 196; }
+.ttl--deserty    { --bw: 588;     --bh: 115.02; --ox: 0.96; --oy: 20.8;  --iw: 348; }
+.ttl--pirozhnye  { --bw: 588;     --bh: 115.02; --ox: 3.84; --oy: 20.8;  --iw: 408; }
+.ttl--korzina    { --bw: 770;     --bh: 115.02; --ox: 3.84; --oy: 20.8;  --iw: 344; }
+.ttl--rozovyj    { --bw: 526.11;  --bh: 87.21;                            --iw: 527; }
+.ttl--dostavka   { --bw: 788.4;   --bh: 110.16;                           --iw: 789; }
+.ttl--katalog    { --bw: 278;     --bh: 90;                               --iw: 278; }
+.ttl--vse        { --bw: 483;     --bh: 113;                              --iw: 483; }
+.ttl--otzyvy     { --bw: 224;     --bh: 83;     --ox: 3.25; --oy: 15.83; --iw: 217; }
+.ttl--kontakty   { --bw: 368;     --bh: 101;    --ox: 5.23; --oy: 20.54; --iw: 356.9; }

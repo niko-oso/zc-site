@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зелёное Царство — авторская растительная кондитерская</title>
+  <meta name="description" content="Авторская растительная кондитерская в Санкт-Петербурге: пирожные, конфеты, смузи и соки.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="home">
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="hero__bg"><img src="assets/img/hero-mosaic.png" alt=""></div>
+      <div class="hero__in wrap">
+        <h1 class="ttl ttl--otrazhenie"><span class="sr-only">Отражение себя</span><img src="assets/titles/otrazhenie-sebya.svg" alt=""></h1>
+        <p class="hero__text">Десерты собираются из ингредиентов и заботы. <br>В каждом вкусе — что-то близкое<span class="hide-t"> именно</span> вам.</p>
+        <a class="btn btn--primary hero__btn" href="catalog.html">Смотреть десерты</a>
+      </div>
+    </section>
+
+    <!-- Акценты -->
+    <section class="tiles wrap" aria-label="Наши десерты">
+      <a class="tile tile--1" href="product.html">
+        <img class="tile__ph" src="img/rozovyj-barhat.webp" alt="Пирожное «Розовый бархат»">
+        <span class="tile__label">ДЕСЕРТЫ  /  РОЗОВЫЙ БАРХАТ</span>
+        <span class="ttl ttl--bud"><img src="assets/titles/bud.svg" alt=""></span>
+        <span class="ttl ttl--soboi"><img src="assets/titles/soboi.svg" alt=""></span>
+        <span class="sr-only">Будь собой</span>
+        <span class="tile__more">Смотреть раздел  ↗</span>
+      </a>
+      <a class="tile tile--2" href="catalog.html">
+        <img class="tile__ph" src="img/solnechnaya-radost.webp" alt="Пирожное «Солнечная радость»">
+        <span class="tile__label">ДЕСЕРТЫ  /  СОЛНЕЧНАЯ РАДОСТЬ</span>
+        <span class="ttl ttl--zaryadis"><img src="assets/titles/zaryadis.svg" alt=""></span>
+        <span class="ttl ttl--tvori"><img src="assets/titles/tvori.svg" alt=""></span>
+        <span class="sr-only">Зарядись, твори</span>
+        <span class="tile__more">Смотреть раздел  ↗</span>
+      </a>
+    </section>
+
+    <!-- Десерты -->
+    <section class="dz wrap">
+      <div class="dz__head">
+        <h2 class="ttl ttl--deserty"><span class="sr-only">Десерты</span><img src="assets/titles/deserty.svg" alt=""></h2>
+        <p class="dz__lead">Разные вкусы, одна идея: бережно относиться к себе.</p>
+      </div>
+      <div class="dz__cards">
+        <a class="dz-card dz-card--pirozhnye" href="category.html">
+          <div class="dz-card__ph">
+            <picture>
+              <source media="(min-width: 640px) and (max-width: 1199px)" srcset="assets/img/cat-pirozhnye-tablet.png">
+              <img class="img-cover" src="assets/img/cat-pirozhnye.png" alt="">
+            </picture>
+          </div>
+          <h3 class="dz-card__name">Пирожные</h3>
+          <span class="link-arrow">Смотреть раздел  ↗</span>
+        </a>
+        <a class="dz-card dz-card--konfety" href="catalog.html">
+          <div class="dz-card__ph">
+            <img src="assets/img/cat-konfety.png" alt="">
+          </div>
+          <h3 class="dz-card__name">Конфеты</h3>
+          <span class="link-arrow">Смотреть раздел  ↗</span>
+        </a>
+        <a class="dz-card dz-card--smuzi" href="catalog.html">
+          <div class="dz-card__ph">
+            <img src="assets/img/cat-smuzi.png" alt="">
+          </div>
+          <h3 class="dz-card__name">Смузи и соки<span class="only-m">  ↗</span></h3>
+          <span class="link-arrow">Смотреть раздел  ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="about wrap">
+      <p class="about__text">Мы собираем себя из множества фрагментов.<br class="hide-t"><span class="only-t"> </span><span class="hide-t">Именно т</span><span class="only-t">Т</span>ак рождается наше отражение.</p>
+      <a class="link-arrow" href="about.html">Узнать о нас  ↗</a>
+    </section>
+
+    <!-- Отзывы покупателей. TODO: подставить подтверждённые отзывы (текст, имя, дата, товар, источник) -->
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="reviews__in">
+          <p class="reviews__label">ЗЕЛЁНОЕ ЦАРСТВО  /  ОБРАТНАЯ СВЯЗЬ</p>
+          <h2 class="ttl ttl--otzyvy"><span class="sr-only">Отзывы</span><img src="assets/titles/otzyvy.svg" alt=""></h2>
+          <div class="reviews__grid">
+            <article class="review">
+              <p class="review__num">01  /  ОТЗЫВ</p>
+              <p class="review__text">Место для подтверждённого отзыва</p>
+              <p class="review__meta">Имя · Дата · Товар · Источник</p>
+            </article>
+            <article class="review">
+              <p class="review__num">02  /  ОТЗЫВ</p>
+              <p class="review__text">Место для подтверждённого отзыва</p>
+              <p class="review__meta">Имя · Дата · Товар · Источник</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

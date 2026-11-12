@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — Зелёное Царство</title>
+  <meta name="description" content="Все десерты и напитки «Зелёного Царства»: пирожные, конфеты, наборы, смузи и соки.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="listing listing--catalog">
+    <div class="cover">
+      <picture>
+        <source media="(max-width: 1199px)" srcset="assets/img/cover-mosaic-2.png">
+        <img src="assets/img/cover-mosaic.png" alt="">
+      </picture>
+    </div>
+
+    <div class="wrap">
+      <div class="listing__head">
+        <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <span aria-current="page">Каталог</span></nav>
+        <h1 class="ttl ttl--vse"><span class="sr-only">Все товары</span><img src="assets/titles/vse-tovary.svg" alt=""></h1>
+        <p class="listing__desc">Десерты и напитки для разных настроений. Выберите своё.</p>
+      </div>
+
+      <div class="toolbar">
+        <nav class="toolbar__tabs hide-m" aria-label="Категории"><a href="catalog.html" aria-current="page">Все товары</a>     <a href="category.html">Пирожные</a>     <a href="catalog.html">Конфеты</a>     <a href="catalog.html">Наборы</a>     <a href="catalog.html">Смузи и соки</a></nav>
+        <nav class="toolbar__tabs only-m" aria-label="Категории"><a href="catalog.html" aria-current="page">Все</a>   <a href="category.html">Пирожные</a>   <a href="catalog.html">Конфеты</a>   <a href="catalog.html">Напитки</a></nav>
+        <div class="toolbar__row">
+          <div class="dd dd--filter" data-dd>
+            <button class="toolbar__filter dd__btn" type="button" aria-expanded="false" aria-haspopup="dialog" data-dd-btn>Фильтры<span class="dd__count" data-flt-count hidden></span><span class="dd__chev" aria-hidden="true"></span></button>
+            <div class="dd__panel dd__panel--filter" role="dialog" aria-label="Фильтры" hidden data-dd-panel>
+              <div class="dd__head"><p>Фильтры</p><button type="button" data-dd-close aria-label="Закрыть">Закрыть  ×</button></div>
+              <div class="dd__groups" data-flt-groups></div>
+              <div class="dd__foot">
+                <button class="dd__reset" type="button" data-flt-reset>Сбросить</button>
+                <button class="btn btn--primary dd__apply" type="button" data-flt-apply>Показать</button>
+              </div>
+            </div>
+          </div>
+          <div class="dd dd--sort" data-dd>
+            <button class="toolbar__sort dd__btn" type="button" aria-expanded="false" aria-haspopup="listbox" data-dd-btn><span class="hide-t" data-sort-label>По умолчанию</span><span class="only-t">Сортировка</span><span class="dd__chev" aria-hidden="true"></span></button>
+            <div class="dd__panel dd__panel--sort" role="dialog" aria-label="Сортировка" hidden data-dd-panel>
+              <div class="dd__head"><p>Сортировка</p><button type="button" data-dd-close aria-label="Закрыть">Закрыть  ×</button></div>
+              <div class="dd__opts" role="radiogroup" aria-label="Порядок товаров">
+                <label class="dd__opt"><input type="radio" name="sort" value="default" checked><span>По умолчанию</span></label>
+                <label class="dd__opt"><input type="radio" name="sort" value="price-asc"><span>Сначала дешевле</span></label>
+                <label class="dd__opt"><input type="radio" name="sort" value="price-desc"><span>Сначала дороже</span></label>
+                <label class="dd__opt"><input type="radio" name="sort" value="name"><span>По названию, А–Я</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dd__empty" data-flt-empty hidden>По выбранным фильтрам ничего не нашлось. <button type="button" data-flt-reset>Сбросить фильтры</button></div>
+
+        <hr>
+      </div>
+
+      <div class="pgrid">
+        <a class="pcard" href="product.html" data-taste="berry">
+          <div class="pcard__ph"><img src="img/rozovyj-barhat-600.webp" alt="" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Розовый бархат</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard" href="product.html" data-taste="citrus">
+          <div class="pcard__ph"><img src="img/solnechnaya-radost-600.webp" alt="" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Солнечная радость</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard" href="product.html" data-taste="choco">
+          <div class="pcard__ph"><img class="crop-konfety" src="assets/img/cat-konfety.png" alt="" loading="lazy"></div>
+          <p class="pcard__type">Конфета</p>
+          <h3 class="pcard__name">Адель</h3>
+          <p class="pcard__price">1 шт  /  125 ₽</p>
+        </a>
+        <a class="pcard" href="product.html" data-taste="caramel">
+          <div class="pcard__ph"><img src="img/karamelnaya-nega-600.webp" alt="" loading="lazy"></div>
+          <p class="pcard__type">Корзиночка</p>
+          <h3 class="pcard__name">Карамельная нега</h3>
+          <p class="pcard__price">1 шт  /  250 ₽</p>
+        </a>
+        <a class="pcard" href="product.html" data-taste="choco">
+          <div class="pcard__ph"><img class="crop-konfety" src="assets/img/cat-konfety.png" alt="" loading="lazy"></div>
+          <p class="pcard__type">Набор</p>
+          <h3 class="pcard__name">Набор конфет 12 шт</h3>
+          <p class="pcard__price">12 шт  /  1 300 ₽</p>
+        </a>
+        <a class="pcard" href="product.html" data-taste="fresh">
+          <div class="pcard__ph"><img class="crop-smuzi" src="assets/img/cat-smuzi.png" alt="" loading="lazy"></div>
+          <p class="pcard__type">Смузи</p>
+          <h3 class="pcard__name">Зелёный танго</h3>
+          <p class="pcard__price">225 г  /  300 ₽</p>
+        </a>
+        <a class="pcard only-d" href="product.html" data-taste="citrus">
+          <div class="pcard__ph"><img src="img/tropicheskoe-naslazhdenie-600.webp" alt="" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Тропическое наслаждение</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard only-d" href="product.html" data-taste="caramel">
+          <div class="pcard__ph"><img src="img/funduk-v-karameli-600.webp" alt="" loading="lazy"></div>
+          <p class="pcard__type">Корзиночка</p>
+          <h3 class="pcard__name">Фундук в карамели</h3>
+          <p class="pcard__price">1 шт  /  250 ₽</p>
+        </a>
+      </div>
+
+      <p class="listing__note"><span class="only-d">В каталоге указаны форматы и цены из актуального прайса. Состав и аллергены доступны в карточке товара.</span><span class="only-t">Состав и аллергены описаны в карточке каждого товара.</span><span class="only-m">В карточке товара: формат, цена, состав, аллергены и условия хранения.</span></p>
+    </div>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

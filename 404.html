@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Страница не найдена — Зелёное Царство</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/components-v2.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pages-v2.css">
+</head>
+<body class="hdr-solid">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <!-- На хостинге: отдавать этот файл на любой несуществующий адрес (Apache: ErrorDocument 404 /404.html;
+       nginx: error_page 404 /404.html). Пути к css/js относительные — сайт должен лежать в корне домена. -->
+  <main class="nf wrap">
+    <div class="nf__body">
+      <p class="nf__label">ЗЕЛЁНОЕ ЦАРСТВО  /  СТРАНИЦА НЕ НАЙДЕНА</p>
+      <p class="nf__code" aria-hidden="true">404</p>
+      <h1 class="display display--m nf__title">Такой страницы нет</h1>
+      <p class="nf__lead">Возможно, ссылка устарела или в адресе опечатка. Найдите десерт через поиск или вернитесь на главную.</p>
+
+      <form class="srch__form nf__search" role="search" action="search.html" method="get">
+        <label class="sr-only" for="nf-q">Что ищем</label>
+        <input class="srch__input" id="nf-q" type="search" name="q" placeholder="Десерт, вкус или раздел" autocomplete="off" enterkeyhint="search">
+        <button class="btn btn--primary srch__go" type="submit">Найти</button>
+      </form>
+
+      <div class="nf__cta">
+        <a class="btn btn--primary" href="index.html">На главную</a>
+        <a class="link-arrow" href="catalog.html">Смотреть каталог  ↗</a>
+      </div>
+
+    </div>
+
+    <figure class="nf__ph">
+      <img src="img/rozovyj-barhat.webp" alt="Пирожное «Розовый бархат»">
+      <figcaption>Пока ищете — «Розовый бархат»  ·  <a href="product.html">Посмотреть  ↗</a></figcaption>
+    </figure>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+</body>
+</html>

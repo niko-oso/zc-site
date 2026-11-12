@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поиск — Зелёное Царство</title>
+  <meta name="description" content="Поиск десертов, напитков и разделов сайта «Зелёного Царства».">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/components-v2.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pages-v2.css">
+</head>
+<body class="hdr-solid">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="srch wrap">
+    <nav class="crumbs lg__crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <span aria-current="page">Поиск</span></nav>
+    <h1 class="display display--m srch__title">Поиск</h1>
+
+    <form class="srch__form" role="search" action="search.html" data-search-form>
+      <label class="sr-only" for="srch-q">Что ищем</label>
+      <input class="srch__input" id="srch-q" type="search" name="q" placeholder="Десерт, вкус или раздел" autocomplete="off" enterkeyhint="search">
+      <button class="srch__clear" type="button" aria-label="Очистить" data-search-clear>×</button>
+      <button class="btn btn--primary srch__go" type="submit">Найти</button>
+    </form>
+    <p class="srch__status" aria-live="polite" data-search-status></p>
+
+    <div class="srch__hints" data-search-hints>
+      <p class="srch__label">ЧАСТО ИЩУТ</p>
+      <div class="srch__tags">
+        <a class="srch__tag" href="search.html?q=пирожные" data-q="пирожные">Пирожные</a>
+        <a class="srch__tag" href="search.html?q=конфеты" data-q="конфеты">Конфеты</a>
+        <a class="srch__tag" href="search.html?q=шоколад" data-q="шоколад">Шоколад</a>
+        <a class="srch__tag" href="search.html?q=ягоды" data-q="ягоды">Ягодные</a>
+        <a class="srch__tag" href="search.html?q=карамель" data-q="карамель">Карамель</a>
+        <a class="srch__tag" href="search.html?q=смузи" data-q="смузи">Смузи</a>
+        <a class="srch__tag" href="search.html?q=торт" data-q="торт">Торт на заказ</a>
+        <a class="srch__tag" href="search.html?q=доставка" data-q="доставка">Доставка</a>
+      </div>
+    </div>
+
+    <section class="srch__sec" data-search-products-box hidden>
+      <p class="srch__label">ТОВАРЫ</p>
+      <div class="pgrid srch__grid" data-search-products></div>
+    </section>
+
+    <section class="srch__sec" data-search-pages hidden>
+      <p class="srch__label">РАЗДЕЛЫ САЙТА</p>
+      <div class="rows srch__rows" data-search-pages-list></div>
+    </section>
+
+    <div class="srch__empty" data-search-empty hidden>
+      <p class="srch__empty-t">Попробуйте другое слово — например, вкус («ягоды», «шоколад») или тип десерта.</p>
+      <div class="srch__empty-cta">
+        <a class="btn btn--primary" href="catalog.html">Смотреть весь каталог</a>
+        <a class="link-arrow" href="contacts.html">Спросить менеджера  ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

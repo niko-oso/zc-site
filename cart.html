@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — Зелёное Царство</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/components-v2.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="is-stone">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="cart wrap">
+    <div class="cart__head">
+      <h1 class="ttl ttl--korzina"><span class="sr-only">Корзина</span><img src="assets/titles/korzina.svg" alt=""></h1>
+      <p class="cart__sub"><span class="only-d">Соберите любимые вкусы, выберите способ получения — менеджер подтвердит заказ.</span><span class="hide-d">Соберите заказ — менеджер подтвердит наличие и время.</span></p>
+    </div>
+    <div class="cart__rule cart__rule--top hide-d"></div>
+
+    <!-- Оформление заказа. Позиции рисует js/main.js из корзины в браузере (localStorage «zc-cart»),
+         отправка — ZC.send('order', …) в js/layout.js (на Тильде — через скрытую форму Тильды). -->
+    <form class="cart__grid" data-checkout novalidate>
+      <div class="cart__list">
+        <p class="co__num" data-cart-filled>01  /  ВАШ ВЫБОР</p>
+        <div class="cart__items" data-cart-list></div>
+        <div class="cart__empty" data-cart-empty hidden>
+          <p class="cart__empty-t">Здесь пока пусто</p>
+          <p class="cart__empty-d">Добавьте десерты из каталога — выбор сохранится в этом браузере.</p>
+          <a class="btn btn--primary" href="catalog.html">Перейти в каталог</a>
+        </div>
+        <div class="cart__rule cart__rule--mid hide-d" data-cart-filled></div>
+        <a class="cart__back" href="catalog.html" data-cart-filled>← Продолжить выбор</a>
+
+        <section class="co__sec" data-cart-filled aria-labelledby="co-get">
+          <p class="co__num">02  /  ПОЛУЧЕНИЕ</p>
+          <h2 class="co__title" id="co-get">Как получить заказ</h2>
+          <div class="co__opts" role="radiogroup" aria-label="Способ получения">
+            <label class="co-opt">
+              <input type="radio" name="receive" value="pickup" checked>
+              <span class="co-opt__t">Самовывоз</span>
+              <span class="co-opt__d">ТРК «Гранд Каньон», пр. Энгельса, 154 · 1 этаж</span>
+              <span class="co-opt__p">Бесплатно</span>
+            </label>
+            <label class="co-opt">
+              <input type="radio" name="receive" value="courier">
+              <span class="co-opt__t">Курьер</span>
+              <span class="co-opt__d">По вторникам и пятницам</span>
+              <span class="co-opt__p">Бесплатно от 2&nbsp;000&nbsp;₽</span>
+            </label>
+          </div>
+          <div class="field co__days" data-days-field>
+            <span class="field__label" data-days-label>День самовывоза</span>
+            <div class="chips" data-days role="radiogroup" aria-label="День получения"></div>
+            <span class="field__hint" data-days-hint>Время выдачи с 10:00 до 19:00 — уточнит менеджер.</span>
+            <span class="field__error">Выберите день</span>
+          </div>
+          <label class="field" data-address hidden>
+            <span class="field__label">Адрес доставки</span>
+            <input type="text" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира, подъезд">
+            <span class="field__error">Укажите адрес</span>
+          </label>
+        </section>
+
+        <section class="co__sec" data-cart-filled aria-labelledby="co-who">
+          <p class="co__num">03  /  КОНТАКТЫ</p>
+          <h2 class="co__title" id="co-who">Кому подтвердить заказ</h2>
+          <div class="form co__form">
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">Имя</span>
+                <input type="text" name="name" autocomplete="given-name" required>
+                <span class="field__error">Как к вам обращаться?</span>
+              </label>
+              <label class="field">
+                <span class="field__label">Телефон</span>
+                <input type="tel" name="phone" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                <span class="field__error">Укажите телефон для связи</span>
+              </label>
+            </div>
+            <div class="field">
+              <span class="field__label">Как связаться</span>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="channel" value="Звонок" checked>Позвонить</label>
+                <label class="chip"><input type="radio" name="channel" value="Telegram">Telegram</label>
+              </div>
+            </div>
+            <label class="field">
+              <span class="field__label">Комментарий</span>
+              <textarea name="comment" placeholder="Пожелания к заказу, удобное время, домофон"></textarea>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="consent" required>
+              <span>Согласен(-на) на <a href="consent.html">обработку персональных данных</a> и с <a href="policy.html">политикой конфиденциальности</a></span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sum sum--co" aria-label="Итог заказа" data-cart-filled>
+        <div class="sum__in">
+          <dl class="sum__rows">
+            <div><dt data-sum-qty>Товары</dt><dd data-sum-goods>0 ₽</dd></div>
+            <div><dt>Получение</dt><dd data-sum-receive>Самовывоз · бесплатно</dd></div>
+          </dl>
+          <div class="sum__free" data-free>
+            <p data-free-text>До бесплатной доставки курьером — 2 000 ₽</p>
+            <div class="sum__bar" aria-hidden="true"><span data-free-bar></span></div>
+          </div>
+          <p class="sum__total"><span>Итого</span><span data-cart-total>0 ₽</span></p>
+          <p class="sum__text">Оплата после подтверждения: менеджер проверит наличие и пришлёт ссылку на оплату или примет оплату при получении.</p>
+          <button class="btn btn--primary" type="submit" data-co-submit>Отправить заказ</button>
+          <p class="sum__err" data-co-error hidden role="alert"></p>
+          <p class="sum__alt">Нужно сегодня? <a href="https://eda.yandex.ru/r/zelenoe_carstvo" target="_blank" rel="noopener">Закажите в Яндекс Еде  ↗</a></p>
+        </div>
+      </aside>
+    </form>
+
+    <section class="co-done" data-co-done hidden role="status" aria-live="polite">
+      <p class="co__num" data-done-num>ЗАКАЗ</p>
+      <h2 class="co-done__title">Заказ принят</h2>
+      <p class="co-done__text">Менеджер подтвердит наличие и время в течение часа (10:00–19:00) — <span data-done-channel>позвонит</span> по номеру <span data-done-phone></span>.</p>
+      <div class="co-done__box">
+        <p class="co-done__label">СОСТАВ ЗАКАЗА</p>
+        <ul class="co-done__list" data-done-list></ul>
+        <p class="co-done__row"><span data-done-receive></span></p>
+        <p class="co-done__total"><span>Итого</span><span data-done-total></span></p>
+      </div>
+      <div class="co-done__cta">
+        <a class="btn btn--primary" href="catalog.html">Вернуться в каталог</a>
+        <a class="link-arrow" href="tel:+79893573333">Срочный вопрос: +7 (989) 357-33-33  ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+/* ==========================================================================
+   v2 · Страницы без макета. Ритм и отступы — как у «Доставки и оплаты».
+   ========================================================================== */
+
+/* ---------- Информационная страница на «камне» ---------- */
+.ip { color: var(--zc-paper); }
+.ip__intro { font-size: 18px; line-height: 25px; max-width: 760px; }
+.ip__rule { height: 1px; background: var(--zc-line); }
+.ip__h2 { font-size: 30px; line-height: 41px; font-weight: 500; }
+.ip__lead { font-size: 17px; line-height: 23px; max-width: 640px; }
+.ip__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; }
+.ip__cta .link-arrow { color: var(--zc-paper); font-size: 15px; line-height: 21px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+
+@media (min-width: 1200px) {
+  .ip { padding-top: 185px; padding-bottom: 160px; }
+  .ip__title { margin-top: 64px; }
+  .ip__intro { margin: 46px 0 0 3px; }
+  .ip__rule { margin-top: 72px; }
+  .ip__body { margin-top: 67px; }
+  .ip__sec { margin-top: 110px; }
+  .ip__sec > .ip__h2 + * { margin-top: 38px; }
+  .ip__sec > .ip__lead { margin-top: 18px; }
+  .ip__sec > .ip__lead + * { margin-top: 38px; }
+  .ip__cta { margin-top: 80px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .ip { padding-top: 151px; padding-bottom: 110px; }
+  .ip__title { margin-top: 33px; }
+  .ip__intro { margin: 40px 0 0 1px; font-size: 17px; line-height: 23px; }
+  .ip__rule { display: none; }
+  .ip__body { margin-top: 74px; }
+  .ip__sec { margin-top: 90px; }
+  .ip__h2 { font-size: 26px; line-height: 36px; }
+  .ip__sec > .ip__h2 + * { margin-top: 30px; }
+  .ip__sec > .ip__lead { margin-top: 14px; }
+  .ip__sec > .ip__lead + * { margin-top: 30px; }
+  .ip__cta { margin-top: 70px; }
+  .grid-3 { grid-template-columns: 1fr; gap: 22px; }
+}
+@media (max-width: 639px) {
+  .ip { padding-top: 112px; padding-bottom: 100px; }
+  .ip__title { margin-top: 30px; }
+  .ip__intro { margin-top: 30px; font-size: 16px; line-height: 22px; }
+  .ip__rule { display: none; }
+  .ip__body { margin-top: 56px; }
+  .ip__sec { margin-top: 80px; }
+  .ip__h2 { font-size: 23px; line-height: 32px; }
+  .ip__lead { font-size: 15px; line-height: 21px; }
+  .ip__sec > .ip__h2 + * { margin-top: 26px; }
+  .ip__sec > .ip__lead { margin-top: 12px; }
+  .ip__sec > .ip__lead + * { margin-top: 26px; }
+  .ip__cta { margin-top: 56px; flex-direction: column; align-items: stretch; }
+  .ip__cta .btn { width: 100%; height: 52px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 22px; }
+}
+
+/* ---------- FAQ-аккордеон (на базе строк «Что важно знать») ---------- */
+.qa { border-bottom: 1px solid var(--zc-line); }
+.qa details { border-top: 1px solid var(--zc-line); }
+.qa summary { display: grid; grid-template-columns: 1fr auto; gap: 30px; padding: 22px 0 24px; list-style: none; cursor: pointer; font-size: 19px; line-height: 26px; font-weight: 500; }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; font-size: 20px; line-height: 26px; transition: transform .25s; }
+.qa details[open] summary::after { transform: rotate(45deg); }
+.qa__a { max-width: 760px; padding-bottom: 28px; font-size: 16px; line-height: 22px; }
+.qa__a p + p { margin-top: 10px; }
+.qa__a a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1199px) {
+  .qa, .qa details { border-color: var(--zc-line-on-stone); }
+  .qa summary { font-size: 17px; line-height: 23px; padding: 18px 0 20px; }
+  .qa__a { font-size: 15px; line-height: 21px; }
+}
+@media (max-width: 639px) {
+  .qa summary { font-size: 16px; line-height: 22px; }
+  .qa__a { font-size: 14px; line-height: 19px; }
+}
+.qa-group + .qa-group { margin-top: 70px; }
+.qa-group .t-label { display: block; margin-bottom: 18px; }
+@media (max-width: 639px) { .qa-group + .qa-group { margin-top: 50px; } }
+
+/* ---------- Медиа-блок «фото + текст» (о компании, торт, акции) ---------- */
+.media { display: grid; align-items: start; }
+.media__ph { position: relative; overflow: hidden; }
+.media__ph img { width: 100%; height: 100%; object-fit: cover; }
+.media__body { display: flex; flex-direction: column; align-items: flex-start; }
+@media (min-width: 1200px) {
+  .media { grid-template-columns: minmax(0, 576px) minmax(0, 575px); column-gap: 95px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .media { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); column-gap: 31px; }
+}
+@media (max-width: 639px) {
+  .media { grid-template-columns: 1fr; row-gap: 40px; }
+}
+
+/* ---------- О компании ---------- */
+.about-p .media__ph { aspect-ratio: 506 / 675; }
+.about-p__name { font-size: 30px; line-height: 41px; font-weight: 500; }
+.about-p__role { margin-top: 8px; font-size: 15px; line-height: 21px; color: rgba(255, 250, 244, .82); }
+.about-p__letter { margin-top: 44px; font-size: 18px; line-height: 27px; }
+.about-p__letter p + p { margin-top: 16px; }
+.about-p__motto { margin-top: 44px; padding: 26px 0; border-top: 1px solid var(--zc-line-on-stone); border-bottom: 1px solid var(--zc-line-on-stone); font-family: var(--zc-font-display-web); font-weight: 250; font-size: 40px; line-height: 48px; }
+.about-p__sign { margin-top: 26px; font-size: 15px; line-height: 21px; }
+.about-p .ip__cta { margin-top: 48px; }
+@media (min-width: 640px) and (max-width: 1199px) {
+  .about-p__name { font-size: 26px; line-height: 36px; }
+  .about-p__letter { margin-top: 30px; font-size: 16px; line-height: 23px; }
+  .about-p__motto { margin-top: 30px; font-size: 32px; line-height: 40px; }
+}
+@media (max-width: 639px) {
+  .about-p__name { font-size: 23px; line-height: 32px; }
+  .about-p__letter { margin-top: 26px; font-size: 16px; line-height: 23px; }
+  .about-p__motto { margin-top: 30px; font-size: 28px; line-height: 35px; }
+}
+
+
+/* ---------- Торт на заказ ---------- */
+.cake .media__ph { aspect-ratio: 576 / 540; }
+.cake__name { font-size: 27px; line-height: 37px; font-weight: 500; }
+.cake__price { margin-top: 8px; font-size: 22px; line-height: 30px; font-weight: 500; white-space: pre; }
+.cake__facts { margin-top: 26px; width: 100%; border-top: 1px solid var(--zc-line-on-stone); }
+.cake__facts div { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--zc-line-on-stone); font-size: 15px; line-height: 21px; }
+.cake__facts dt { color: rgba(255, 250, 244, .82); }
+.cake__facts dd { margin: 0; }
+.cake__form { margin-top: 40px; width: 100%; }
+.cake__note { font-size: 13px; line-height: 18px; color: rgba(255, 250, 244, .82); }
+.cake__steps { counter-reset: s; }
+@media (max-width: 639px) {
+  .cake__facts div { grid-template-columns: 1fr; gap: 2px; }
+  .cake__name { font-size: 23px; line-height: 32px; }
+}
+
+/* ---------- Акции ---------- */
+.promo .media__ph { aspect-ratio: 576 / 540; }
+.promo__title { margin-top: 26px; }
+.promo__text { margin-top: 24px; font-size: 18px; line-height: 26px; }
+.promo__text li { position: relative; padding-left: 22px; }
+.promo__text li + li { margin-top: 6px; }
+.promo__text li::before { content: "—"; position: absolute; left: 0; }
+.promo .code { margin-top: 32px; }
+.promo .media__body > .btn--primary { margin-top: 32px; width: 262px; }
+@media (max-width: 639px) {
+  .promo__text { font-size: 16px; line-height: 23px; }
+  .promo .media__body > .btn--primary { width: 100%; height: 52px; }
+  .promo .code { width: 100%; justify-content: space-between; }
+}
+
+/* ---------- Мероприятия (светлый листинг с обложкой, без вкладок) ---------- */
+.listing__head .display { top: 291px; white-space: nowrap; }
+@media (min-width: 640px) and (max-width: 1199px) { .listing__head .display { top: 228px; } }
+@media (max-width: 639px) { .listing__head .display { top: 220px; } }
+.ngrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; row-gap: 63px; }
+@media (min-width: 1200px) { .ngrid { margin-top: 44px; } }
+@media (min-width: 640px) and (max-width: 1199px) { .ngrid { margin-top: 47px; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 34px; row-gap: 50px; } }
+@media (max-width: 639px) { .ngrid { margin-top: 40px; grid-template-columns: 1fr; row-gap: 50px; } }
+
+.ip__cta .btn { min-width: 228px; }
+.faq__a .link-arrow { display: inline-block; margin-top: 12px; color: var(--zc-paper); }
+
+.cake .media__ph + .cake__name { margin-top: 28px; }
+.cake .btn--primary { width: 262px; }
+@media (max-width: 639px) { .cake .btn--primary { width: 100%; height: 52px; } }
+
+
+.listing--events .toolbar hr { margin-top: 0; }
+.media__body > .ip__cta { align-self: stretch; }
+.ip__cta .link-arrow { white-space: normal; }
+
+/* Мероприятия: без вкладок шапка листинга заканчивается вместе с обложкой — линия по её нижнему краю */
+@media (min-width: 640px) and (max-width: 1199px) { .listing--events .listing__head { height: 530px; } }
+@media (max-width: 639px) { .listing--events .listing__head { height: 426px; } }
+
+/* ==========================================================================
+   Юридические страницы (offer · policy · cookie · consent)
+   Светлый фон и тёмная подложка шапки — как «Контакты» (body.hdr-solid).
+   ========================================================================== */
+.lg { color: var(--zc-ink); }
+.lg__crumbs { display: block; font-size: 12px; line-height: 17px; color: var(--zc-muted-3); }
+.lg__label { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); white-space: pre; }
+.lg__title { color: var(--zc-ink); }
+.lg__meta { font-size: 14px; line-height: 19px; color: var(--zc-muted-3); }
+.lg__meta a { color: var(--zc-olive); white-space: pre; }
+.lg__layout { display: grid; grid-template-columns: 312px minmax(0, 760px); column-gap: 96px; align-items: start; border-top: 1px solid var(--zc-line-2); }
+.lg__toc { position: sticky; top: 24px; padding-top: 32px; }
+.lg__toc p { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); }
+.lg__toc ol { margin-top: 16px; list-style: none; display: grid; gap: 10px; font-size: 14px; line-height: 19px; }
+.lg__toc a { color: var(--zc-muted-3); transition: color .2s; }
+.lg__toc a:hover { color: var(--zc-ink); }
+.lg__text { padding-top: 32px; font-size: 15px; line-height: 24px; }
+.lg__text section + section { margin-top: 40px; }
+.lg__text h2 { font-size: 21px; line-height: 29px; font-weight: 500; scroll-margin-top: 24px; }
+.lg__text h2 + * { margin-top: 14px; }
+.lg__text p + p, .lg__text p + ul, .lg__text ul + p { margin-top: 10px; }
+.lg__text ul { list-style: none; display: grid; gap: 6px; }
+.lg__text li { position: relative; padding-left: 22px; }
+.lg__text li::before { content: "—"; position: absolute; left: 0; color: var(--zc-olive); }
+.lg__text a { color: var(--zc-olive); text-decoration: underline; text-underline-offset: 3px; }
+.lg__lead { font-size: 17px; line-height: 26px; }
+.lg__req { margin-top: 56px; padding: 26px 29px 28px; background: var(--zc-soft); }
+.lg__req h2 { font-size: 21px; line-height: 29px; font-weight: 500; }
+.lg__req .req { margin-top: 18px; }
+.lg__req .req dd { font-size: 15px; }
+.lg__docs { margin-top: 56px; }
+.lg__docs h2 { font-size: 21px; line-height: 29px; font-weight: 500; }
+.lg__docs .rows { margin-top: 14px; border-bottom-color: var(--zc-line-2); }
+.lg__docs .row-link { border-top-color: var(--zc-line-2); padding: 18px 0 20px; }
+.lg__docs .row-link__title { font-size: 17px; line-height: 23px; }
+.lg__docs .row-link__meta { color: var(--zc-muted-3); }
+.lg__docs .row-link[aria-current="page"] { opacity: .45; pointer-events: none; }
+@media (min-width: 1200px) {
+  .lg__crumbs { padding-top: calc(var(--zc-header-h) + 41px); }
+  .lg__label { margin-top: 26px; }
+  .lg__title { margin-top: 10px; }
+  .lg__meta { margin-top: 14px; }
+  .lg__layout { margin-top: 40px; padding-bottom: 120px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .lg__crumbs { padding-top: calc(var(--zc-header-h) + 32px); }
+  .lg__label { margin-top: 25px; }
+  .lg__title { margin-top: 8px; }
+  .lg__meta { margin-top: 12px; }
+  .lg__layout { margin-top: 32px; grid-template-columns: minmax(0, 1fr); padding-bottom: 96px; }
+  .lg__toc { position: static; }
+  .lg__toc ol { grid-template-columns: 1fr 1fr; column-gap: 34px; }
+}
+@media (max-width: 639px) {
+  .lg__crumbs { padding-top: calc(var(--zc-header-h) + 32px); }
+  .lg__label { margin-top: 26px; }
+  .lg__title { margin-top: 6px; }
+  .lg__meta { margin-top: 10px; font-size: 13px; line-height: 18px; }
+  .lg__layout { margin-top: 26px; grid-template-columns: minmax(0, 1fr); padding-bottom: 72px; }
+  .lg__toc { display: none; }
+  .lg__text { padding-top: 26px; font-size: 14px; line-height: 22px; }
+  .lg__text section + section { margin-top: 32px; }
+  .lg__text h2 { font-size: 18px; line-height: 25px; }
+  .lg__lead { font-size: 15px; line-height: 23px; }
+  .lg__req { margin-top: 40px; padding: 22px 17px 24px; }
+  .lg__docs { margin-top: 40px; }
+}
+.lg__lead + section { margin-top: 40px; }
+@media (max-width: 639px) { .lg__lead + section { margin-top: 32px; } }
+
+/* ==========================================================================
+   Поиск (search.html) — светлая страница с подложкой шапки, как юр. страницы.
+   Поле — строка с линией снизу (как разделители листинга), кнопка — .btn--primary,
+   подсказки — чипы как в фильтрах, результаты — .pcard и .row-link.
+   ========================================================================== */
+.srch { color: var(--zc-ink); }
+.srch__title { color: var(--zc-ink); }
+.srch__form { display: flex; align-items: center; gap: 16px; max-width: 980px; padding-bottom: 14px; border-bottom: 1px solid var(--zc-ink); transition: border-color .2s; }
+.srch__form:focus-within { border-color: var(--zc-olive); }
+.srch__input { flex: 1; min-width: 0; border: 0; padding: 0; background: none; outline: none; color: var(--zc-ink); font: 400 28px/38px var(--zc-font); }
+.srch__input::placeholder { color: var(--zc-muted); opacity: 1; }
+.srch__input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+.srch__clear { flex: none; width: 32px; height: 32px; font-size: 26px; line-height: 1; color: var(--zc-muted-3); transition: color .2s; }
+.srch__clear:hover { color: var(--zc-ink); }
+.srch__input:placeholder-shown ~ .srch__clear { visibility: hidden; }
+.srch__go { flex: none; min-width: 149px; }
+.srch__status { min-height: 19px; margin-top: 16px; font-size: 14px; line-height: 19px; color: var(--zc-muted-3); }
+.srch__label { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); }
+.srch__hints { margin-top: 40px; }
+.srch__tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; max-width: 980px; }
+.srch__tag { display: inline-flex; align-items: center; height: 38px; padding: 0 15px; border: 1px solid var(--zc-line-2); font-size: 14px; line-height: 19px; transition: background .2s, border-color .2s, color .2s; }
+.srch__tag:hover { border-color: var(--zc-olive); background: var(--zc-olive); color: var(--zc-paper); }
+.srch__sec { margin-top: 48px; }
+.srch__grid { margin-top: 24px; }
+.srch__rows { margin-top: 14px; max-width: 980px; border-bottom-color: var(--zc-line-2); }
+.srch__rows .row-link { border-top-color: var(--zc-line-2); padding: 18px 0 20px; }
+.srch__rows .row-link__title { font-size: 17px; line-height: 23px; }
+.srch__rows .row-link__meta { color: var(--zc-muted-3); }
+.srch__empty { margin-top: 40px; max-width: 640px; }
+.srch__empty-t { font-size: 17px; line-height: 26px; }
+.srch__empty-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; margin-top: 28px; }
+.srch__empty-cta .link-arrow { color: var(--zc-olive); }
+@media (min-width: 1200px) {
+  .srch__title { margin-top: 26px; }
+  .srch__form { margin-top: 40px; }
+  .srch { padding-bottom: 120px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .srch__title { margin-top: 20px; }
+  .srch__form { margin-top: 32px; }
+  .srch__input { font-size: 24px; line-height: 33px; }
+  .srch { padding-bottom: 96px; }
+}
+@media (max-width: 639px) {
+  .srch__title { margin-top: 18px; }
+  .srch__form { margin-top: 26px; gap: 10px; padding-bottom: 12px; }
+  .srch__input { font-size: 19px; line-height: 26px; }
+  .srch__clear { width: 26px; }
+  .srch__go { min-width: 0; height: 40px; padding: 0 18px; font-size: 13px; }
+  .srch__hints { margin-top: 30px; }
+  .srch__tag { height: 36px; padding: 0 13px; font-size: 13px; }
+  .srch__sec { margin-top: 36px; }
+  .srch__grid { row-gap: 40px; }
+  .srch__rows .row-link { grid-template-columns: 1fr auto; }
+  .srch__rows .row-link__meta { display: none; }
+  .srch__empty-t { font-size: 15px; line-height: 23px; }
+  .srch__empty-cta { flex-direction: column; align-items: stretch; }
+  .srch__empty-cta .btn { width: 100%; height: 52px; }
+  .srch { padding-bottom: 72px; }
+}
+
+/* ==========================================================================
+   404 — светлая страница с подложкой шапки; поле поиска и строки-ссылки
+   из search.html; крупная «404» — тем же заголовочным шрифтом, оливой.
+   ========================================================================== */
+.nf { color: var(--zc-ink); display: grid; align-items: start; }
+.nf__label { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); white-space: pre; }
+.nf__code { font-family: var(--zc-font-display-web); font-weight: 250; font-size: 220px; line-height: .82; letter-spacing: -0.02em; color: var(--zc-olive); }
+.nf__title { color: var(--zc-ink); }
+.nf__lead { font-size: 17px; line-height: 26px; max-width: 560px; }
+.nf__search { max-width: 640px; }
+.nf__search .srch__input { font-size: 22px; line-height: 30px; }
+.nf__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 40px; }
+.nf__cta .btn { min-width: 200px; }
+.nf__cta .link-arrow { color: var(--zc-olive); }
+.nf__ph { position: relative; margin: 0; }
+.nf__ph img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--zc-silver); }
+.nf__ph figcaption { margin-top: 14px; font-size: 13px; line-height: 18px; color: var(--zc-muted-3); white-space: pre-wrap; }
+.nf__ph figcaption a { color: var(--zc-olive); white-space: pre; }
+@media (min-width: 1200px) {
+  .nf { grid-template-columns: minmax(0, 1fr) 452px; column-gap: 96px; padding-top: calc(var(--zc-header-h) + 64px); padding-bottom: 120px; }
+  .nf__code { margin-top: 30px; }
+  .nf__title { margin-top: 26px; }
+  .nf__lead { margin-top: 20px; }
+  .nf__search { margin-top: 40px; }
+  .nf__cta { margin-top: 36px; }
+  .nf__ph { position: sticky; top: 24px; margin-top: 4px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .nf { grid-template-columns: minmax(0, 1fr) 260px; column-gap: 40px; padding-top: calc(var(--zc-header-h) + 48px); padding-bottom: 96px; }
+  .nf__code { margin-top: 24px; font-size: 168px; }
+  .nf__title { margin-top: 20px; }
+  .nf__lead { margin-top: 16px; }
+  .nf__search { margin-top: 32px; }
+  .nf__search .srch__input { font-size: 20px; line-height: 28px; }
+  .nf__cta { margin-top: 30px; }
+  .nf__ph { grid-column: 2; grid-row: 1; margin-top: 4px; }
+}
+@media (max-width: 639px) {
+  .nf { grid-template-columns: minmax(0, 1fr); padding-top: calc(var(--zc-header-h) + 32px); padding-bottom: 72px; }
+  .nf__code { margin-top: 20px; font-size: 128px; }
+  .nf__title { margin-top: 16px; }
+  .nf__lead { margin-top: 14px; font-size: 15px; line-height: 23px; }
+  .nf__search { margin-top: 26px; }
+  .nf__search .srch__input { font-size: 18px; line-height: 25px; }
+  .nf__cta { margin-top: 26px; flex-direction: column; align-items: stretch; }
+  .nf__cta .btn { width: 100%; height: 52px; }
+  .nf__cta .link-arrow { align-self: flex-start; }
+  .nf__ph { display: none; }
+}
