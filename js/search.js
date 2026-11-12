@@ -17,11 +17,11 @@
     ['Шоколадный трепет', 'Пирожное', '40 г', 220, 'img/shokoladnyj-trepet-600.webp', 'product.html', 'шоколад шоколадный какао'],
     ['Кофейная гармония', 'Пирожное', '40 г', 250, '', 'product.html', 'кофе кофейный шоколад'],
     ['Тропическое наслаждение', 'Пирожное', '40 г', 220, 'img/tropicheskoe-naslazhdenie-600.webp', 'product.html', 'цитрус тропический манго маракуйя ананас'],
-    ['Адель', 'Конфета', '1 шт', 125, 'assets/img/cat-konfety.png|crop-konfety', 'product.html', 'конфеты трюфель шоколад'],
-    ['Набор конфет 12 шт', 'Набор', '12 шт', 1300, 'assets/img/cat-konfety.png|crop-konfety', 'product.html', 'конфеты подарок подарочный шоколад'],
+    ['Адель', 'Конфета', '1 шт', 125, 'assets/img/cat-konfety.webp|crop-konfety', 'product.html', 'конфеты трюфель шоколад'],
+    ['Набор конфет 12 шт', 'Набор', '12 шт', 1300, 'assets/img/cat-konfety.webp|crop-konfety', 'product.html', 'конфеты подарок подарочный шоколад'],
     ['Карамельная нега', 'Корзиночка', '1 шт', 250, 'img/karamelnaya-nega-600.webp', 'product.html', 'карамель орехи'],
     ['Фундук в карамели', 'Корзиночка', '1 шт', 250, 'img/funduk-v-karameli-600.webp', 'product.html', 'карамель орехи орех фундук'],
-    ['Зелёный танго', 'Смузи', '225 г', 300, 'assets/img/cat-smuzi.png|crop-smuzi', 'product.html', 'напиток напитки смузи зелёный свежий']
+    ['Зелёный танго', 'Смузи', '225 г', 300, 'assets/img/cat-smuzi.webp|crop-smuzi', 'product.html', 'напиток напитки смузи зелёный свежий']
   ];
 
   /* разделы и информационные страницы */

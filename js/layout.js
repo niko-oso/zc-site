@@ -60,7 +60,7 @@
 
   var menu =
     '<div class="menu" id="zc-menu" role="dialog" aria-label="Каталог">' +
-      '<div class="menu__strip"><img src="' + A + 'img/hero-mosaic.png" alt=""></div>' +
+      '<div class="menu__strip"><img src="' + A + 'img/hero-mosaic.webp" alt="" loading="lazy" decoding="async"></div>' +
       '<div class="menu__in">' +
         '<button class="menu__close" type="button" data-menu-close>Закрыть  ×</button>' +
         '<a class="menu__search" href="search.html">Поиск по товарам  ⌕</a>' +
