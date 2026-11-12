@@ -160,3 +160,15 @@
 }
 .code { max-width: 100%; }
 .code .btn { flex: none; }
+
+/* Адаптив: крупные заголовки не шире экрана на узких телефонах (320–389) */
+@media (max-width: 639px) {
+  .display { font-size: min(44px, 11.5vw); line-height: 1.18; }
+  .display--m { font-size: min(38px, 10vw); line-height: 1.21; }
+}
+@media (max-width: 639px) {
+  .row-link { grid-template-columns: minmax(0, 1fr) auto; }
+  .row-link__title { overflow-wrap: anywhere; }
+  .code { gap: 10px; padding-left: 16px; }
+  .code__val { min-width: 0; overflow-wrap: anywhere; }
+}

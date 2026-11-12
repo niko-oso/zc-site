@@ -351,3 +351,18 @@
   .nf__cta .link-arrow { align-self: flex-start; }
   .nf__ph { display: none; }
 }
+
+/* ==========================================================================
+   Адаптив между макетными ширинами (12.11) — страховка от вылезания
+   ========================================================================== */
+/* 640–767: для «фото + текст» две колонки слишком узкие — ставим друг под друга */
+@media (min-width: 640px) and (max-width: 767px) {
+  .media { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .media__ph { max-width: 460px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .ip__cta .btn { min-width: min(228px, 100%); }
+}
+@media (max-width: 639px) {
+  .media { grid-template-columns: minmax(0, 1fr); }
+}

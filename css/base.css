@@ -91,12 +91,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):
   height: calc(var(--bh) * var(--s) * 1px);
   margin: 0;
   font-weight: 400;
+  container-type: inline-size; /* 100cqw = фактическая ширина бокса заголовка */
 }
+/* Масштаб как в макете (--s), но если глифам не хватает ширины контейнера
+   (экраны уже макетных 1440/768/390) — картинка ужимается до ширины бокса. */
 .ttl > img {
   position: absolute;
-  left: calc(var(--ox, 0) * var(--s) * 1px);
-  top: calc(var(--oy, 0) * var(--s) * 1px);
-  width: calc(var(--iw) * var(--s) * 1px);
+  left: min(calc(var(--ox, 0) * var(--s) * 1px), calc(100cqw * var(--ox, 0) / (var(--ox, 0) + var(--iw))));
+  top: min(calc(var(--oy, 0) * var(--s) * 1px), calc(100cqw * var(--oy, 0) / (var(--ox, 0) + var(--iw))));
+  width: min(calc(var(--iw) * var(--s) * 1px), calc(100cqw * var(--iw) / (var(--ox, 0) + var(--iw))));
   height: auto;
   max-width: none;
   pointer-events: none;
@@ -117,3 +120,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):
 .ttl--vse        { --bw: 483;     --bh: 113;                              --iw: 483; }
 .ttl--otzyvy     { --bw: 224;     --bh: 83;     --ox: 3.25; --oy: 15.83; --iw: 217; }
 .ttl--kontakty   { --bw: 368;     --bh: 101;    --ox: 5.23; --oy: 20.54; --iw: 356.9; }
+
+/* Длинные слова и адреса (https://…) переносятся, а не раздвигают страницу */
+body { overflow-wrap: break-word; }
+.lg__text, .faq__a, .qa__a { overflow-wrap: anywhere; }

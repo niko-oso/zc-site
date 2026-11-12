@@ -523,3 +523,26 @@
   .hdr__row .w-cart { position: relative; }
   .w-cart__n { position: absolute; left: 54px; top: -11px; min-width: 18px; height: 18px; padding: 0 5px; font-size: 10px; }
 }
+
+/* ==========================================================================
+   Адаптив между макетными ширинами (12.11): ничего не вылезает за контейнер.
+   Макет нарисован на 1440 / 768 / 390 — здесь страховка для 320–389, 640–767, 1200–1439.
+   ========================================================================== */
+.crumbs { white-space: pre-wrap; }
+@media (min-width: 640px) and (max-width: 1199px) {
+  .ftr__cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ftr__reach { width: auto; max-width: 165px; }
+}
+@media (max-width: 639px) {
+  .row-link { column-gap: 14px; }
+  .row-link__meta { white-space: normal; }
+}
+/* Узкие телефоны (< 375): логотип и правая группа шапки не наезжают друг на друга */
+@media (max-width: 374px) {
+  .hdr__logo { width: 92px; }
+  .hdr__row { left: auto; right: 0; }
+  .hdr__row .w-fav { width: 34px; }
+  .hdr__row .w-call { margin-right: 4px; }
+  .hdr__row .w-cart { width: 72px; font-size: 13px; }
+  .w-cart__n { left: 50px; }
+}

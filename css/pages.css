@@ -695,3 +695,23 @@
   .dlv-card--soft { height: auto; min-height: 338px; padding-bottom: 30px; }
   .dlv-card--soft .link-arrow { display: block; margin-top: auto; padding-top: 28px; }
 }
+
+/* ==========================================================================
+   Адаптив между макетными ширинами (12.11) — страховка от вылезания
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .dz__lead { left: auto; right: 0; width: min(614px, 50%); }
+  .listing__desc { right: 0; width: auto; max-width: 654px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .listing__desc { right: 0; width: auto; max-width: 600px; }
+  .prod__info .btn { max-width: 100%; }
+}
+@media (max-width: 639px) {
+  .listing__desc { right: 0; width: auto; max-width: 346px; }
+  .listing--category .listing__desc { max-width: 290px; }
+  .dlv-card { min-width: 0; }
+  .dlv-card__title, .dlv-card__addr { white-space: pre-line; }
+}
+@media (min-width: 640px) and (max-width: 1199px) { .prod__info .btn { width: calc(100% - 3px); } }
+@media (max-width: 639px) { .listing--category .listing__desc { width: auto; } }
