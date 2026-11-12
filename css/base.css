@@ -124,3 +124,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):
 /* Длинные слова и адреса (https://…) переносятся, а не раздвигают страницу */
 body { overflow-wrap: break-word; }
 .lg__text, .faq__a, .qa__a { overflow-wrap: anywhere; }
+
+/* Старые браузеры без container queries (Safari < 16): ужимаем заголовок по ширине экрана минус поля */
+@supports not (container-type: inline-size) {
+  .ttl > img {
+    left: min(calc(var(--ox, 0) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--ox, 0) / (var(--ox, 0) + var(--iw))));
+    top: min(calc(var(--oy, 0) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--oy, 0) / (var(--ox, 0) + var(--iw))));
+    width: min(calc(var(--iw) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--iw) / (var(--ox, 0) + var(--iw))));
+  }
+}
