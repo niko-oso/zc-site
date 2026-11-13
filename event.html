@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мероприятия — Зелёное Царство</title>
+  <meta name="description" content="События, новинки и новости кондитерской «Зелёное Царство».">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css?v=11131635">
+  <link rel="stylesheet" href="css/base.css?v=11131635">
+  <link rel="stylesheet" href="css/components.css?v=11131635">
+  <link rel="stylesheet" href="css/components-v2.css?v=11131635">
+  <link rel="stylesheet" href="css/pages.css?v=11131635">
+  <link rel="stylesheet" href="css/pages-v2.css?v=11131635">
+</head>
+<body class="hdr-solid">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <!-- Шаблон материала: содержимое подставляет js/events.js по адресу event.html?id=… -->
+  <main class="ev wrap" data-event>
+    <nav class="crumbs lg__crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <a href="events.html">Мероприятия</a>  /  <span aria-current="page" data-ev-crumb></span></nav>
+
+    <div class="ev__found">
+      <header class="ev__head">
+        <p class="ev__tag" data-ev-tag></p>
+        <h1 class="display display--m ev__title" data-ev-title></h1>
+        <p class="ev__lead" data-ev-lead></p>
+      </header>
+
+      <figure class="ev__cover"><img src="" alt="" data-ev-cover></figure>
+
+      <div class="ev__layout">
+        <article class="lg__text ev__body" data-ev-body></article>
+
+        <aside class="ev__aside" aria-label="Коротко">
+          <div class="ev__card">
+            <p class="ev__card-label" data-ev-aside-label>КОРОТКО</p>
+            <dl class="ev__facts" data-ev-facts></dl>
+            <a class="btn btn--primary ev__cta" href="#" data-ev-cta></a>
+            <div class="ev__more" data-ev-more></div>
+          </div>
+          <a class="ev__back" href="events.html">← Все мероприятия</a>
+        </aside>
+      </div>
+
+      <section class="ev__related" aria-labelledby="ev-rel">
+        <h2 class="ev__related-title" id="ev-rel">Ещё материалы</h2>
+        <div class="ngrid" data-ev-related></div>
+      </section>
+    </div>
+
+    <div class="ev__missing">
+      <p class="ev__tag">МЕРОПРИЯТИЯ</p>
+      <h1 class="display display--m ev__title">Материал не найден</h1>
+      <p class="ev__lead">Возможно, ссылка устарела. Все события и новости — в общем списке.</p>
+      <a class="btn btn--primary" href="events.html">Все мероприятия</a>
+    </div>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js?v=11131635"></script>
+  <script src="js/events.js?v=11131635"></script>
+</body>
+</html>

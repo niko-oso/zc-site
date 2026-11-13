@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=11131629">
-  <link rel="stylesheet" href="css/base.css?v=11131629">
-  <link rel="stylesheet" href="css/components.css?v=11131629">
-  <link rel="stylesheet" href="css/components-v2.css?v=11131629">
-  <link rel="stylesheet" href="css/pages.css?v=11131629">
-  <link rel="stylesheet" href="css/pages-v2.css?v=11131629">
+  <link rel="stylesheet" href="css/tokens.css?v=11131635">
+  <link rel="stylesheet" href="css/base.css?v=11131635">
+  <link rel="stylesheet" href="css/components.css?v=11131635">
+  <link rel="stylesheet" href="css/components-v2.css?v=11131635">
+  <link rel="stylesheet" href="css/pages.css?v=11131635">
+  <link rel="stylesheet" href="css/pages-v2.css?v=11131635">
 </head>
 <body>
   <div data-zc="header"></div>
@@ -38,58 +38,16 @@
         <hr>
       </div>
 
-      <div class="ngrid">
-        <!-- TODO: карточки мероприятий от клиента (дата, место, описание) — ставить первыми; новости идут в общем списке, без вкладок -->
-        <article class="ncard">
-          <div class="ncard__ph"><img src="img/tropicheskoe-naslazhdenie-600.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">НОВОСТИ  ·  НА ЗАКАЗ</p>
-          <h2 class="ncard__title">Бенто-торты к празднику</h2>
-          <p class="ncard__lead">Принимаем заявки на бенто «Тропическое наслаждение» 500 г. Оформление и надпись обсуждаем с менеджером.</p>
-          <a class="link-arrow" href="cake.html">Оставить заявку  ↗</a>
-        </article>
-        <article class="ncard">
-          <div class="ncard__ph"><img src="img/solnechnaya-radost-600.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">НОВОСТИ  ·  САМОВЫВОЗ</p>
-          <h2 class="ncard__title">Две точки самовывоза</h2>
-          <p class="ncard__lead">Заказ можно забрать в ТРК «Гранд Каньон» и в ТРК «Меркурий». Перед поездкой согласуйте готовность.</p>
-          <a class="link-arrow" href="contacts.html">Адреса и маршруты  ↗</a>
-        </article>
-        <article class="ncard">
-          <div class="ncard__ph"><img src="img/limon-600.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">ВЫБОР ДЕСЕРТА</p>
-          <h2 class="ncard__title">Как выбрать размер порции</h2>
-          <p class="ncard__lead">Сравниваем доступные веса и цены в карточке товара — на примере пирожных.</p>
-          <a class="link-arrow" href="faq.html">Читать  ↗</a>
-        </article>
-        <article class="ncard">
-          <div class="ncard__ph"><img src="assets/img/news-podarok.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">ПОДАРКИ</p>
-          <h2 class="ncard__title">Что подарить любителю сладкого</h2>
-          <p class="ncard__lead">Набор конфет или бенто-торт: что выбрать и когда оформить заказ.</p>
-          <a class="link-arrow" href="catalog.html">Смотреть наборы  ↗</a>
-        </article>
-        <article class="ncard">
-          <div class="ncard__ph"><img src="img/rozovyj-barhat-2-600.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">ВЫБОР ДЕСЕРТА</p>
-          <h2 class="ncard__title">Где смотреть состав и аллергены</h2>
-          <p class="ncard__lead">Состав, пищевая ценность и хранение — в карточке каждого десерта. При аллергии уточните детали у менеджера.</p>
-          <a class="link-arrow" href="product.html">Пример карточки  ↗</a>
-        </article>
-        <article class="ncard">
-          <div class="ncard__ph"><img src="assets/img/cat-smuzi.webp" alt="" loading="lazy"></div>
-          <p class="ncard__tag">НОВОСТИ  ·  ДОСТАВКА</p>
-          <h2 class="ncard__title">Доставка по вторникам и пятницам</h2>
-          <p class="ncard__lead">Бесплатно при заказе от 2 000 ₽. Для небольших заказов поможем вызвать курьерскую службу.</p>
-          <a class="link-arrow" href="delivery.html">Условия доставки  ↗</a>
-        </article>
-      </div>
+      <!-- Карточки строит js/events.js (мероприятия первыми, затем новости; у каждой — своя страница event.html?id=…) -->
+      <div class="ngrid" data-events-list></div>
 
       <p class="listing__note">Пишем о новинках и отвечаем на частые вопросы. Не нашли ответ — <a href="contacts.html">свяжитесь с нами</a>.</p>
     </div>
   </main>
 
   <div data-zc="footer"></div>
-  <script src="js/layout.js?v=11131629"></script>
-  <script src="js/main.js?v=11131629"></script>
+  <script src="js/layout.js?v=11131635"></script>
+  <script src="js/main.js?v=11131635"></script>
+  <script src="js/events.js?v=11131635"></script>
 </body>
 </html>

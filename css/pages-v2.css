@@ -417,3 +417,84 @@
   .fav__empty .btn { width: 100%; height: 52px; }
   .fav { padding-bottom: 72px; }
 }
+
+/* ==========================================================================
+   Материал мероприятий / новостей (event.html?id=…, 13.11)
+   Светлая страница с подложкой шапки; текст — типографика юр. страниц (.lg__text),
+   справа «Коротко» (мягкая плашка, sticky на desktop), внизу — карточки .ncard.
+   ========================================================================== */
+.ev { color: var(--zc-ink); }
+.ev__missing { display: none; }
+.ev.is-missing .ev__found { display: none; }
+.ev.is-missing .ev__missing { display: block; }
+.ev__tag { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); white-space: pre-wrap; }
+.ev__title { max-width: 980px; color: var(--zc-ink); }
+.ev__lead { max-width: 760px; font-size: 18px; line-height: 26px; color: var(--zc-muted-3); }
+.ev__cover { margin: 0; overflow: hidden; background: var(--zc-silver); aspect-ratio: 1296 / 560; }
+.ev__cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ev__layout { display: grid; grid-template-columns: minmax(0, 760px) minmax(0, 360px); justify-content: space-between; column-gap: 72px; align-items: start; }
+.ev__body { padding-top: 0; font-size: 17px; line-height: 27px; }
+.ev__body > :first-child { margin-top: 0; }
+.ev__body h2 { margin-top: 36px; }
+.ev__aside { display: flex; flex-direction: column; gap: 22px; }
+.ev__card { padding: 26px 28px 28px; background: var(--zc-soft); }
+.ev__card-label { font-size: 11px; line-height: 15px; font-weight: 500; color: var(--zc-olive); }
+.ev__facts { margin-top: 14px; display: grid; }
+.ev__facts div { padding: 12px 0; border-top: 1px solid var(--zc-line-2); }
+.ev__facts dt { font-size: 12px; line-height: 17px; color: var(--zc-muted-3); }
+.ev__facts dd { margin-top: 3px; font-size: 15px; line-height: 21px; font-weight: 500; }
+.ev__facts[hidden] { display: none; }
+.ev__facts + .ev__cta { margin-top: 10px; }
+.ev__cta { margin-top: 18px; width: 100%; height: 52px; }
+.ev__more { display: grid; gap: 12px; margin-top: 18px; }
+.ev__more:empty { display: none; }
+.ev__more .link-arrow { color: var(--zc-olive); white-space: normal; }
+.ev__back { font-size: 14px; line-height: 19px; font-weight: 500; color: var(--zc-muted-3); transition: color .2s; }
+.ev__back:hover { color: var(--zc-ink); }
+.ev.is-example .ev__tag { color: var(--zc-muted-3); }
+.ev__related { border-top: 1px solid var(--zc-line-2); }
+.ev__related-title { font-size: 30px; line-height: 41px; font-weight: 500; }
+.ncard__ph { display: block; }
+.ncard__title a { color: inherit; transition: color .2s; }
+.ncard__title a:hover { color: var(--zc-olive); }
+.ev__missing .btn { margin-top: 32px; min-width: 228px; }
+@media (min-width: 1200px) {
+  .ev__head { margin-top: 26px; }
+  .ev__title { margin-top: 10px; }
+  .ev__lead { margin-top: 18px; }
+  .ev__cover { margin-top: 44px; }
+  .ev__layout { margin-top: 56px; }
+  .ev__aside { position: sticky; top: 24px; }
+  .ev__related { margin-top: 96px; padding-top: 48px; }
+  .ev { padding-bottom: 120px; }
+  .ev__missing { margin-top: 26px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .ev__head { margin-top: 20px; }
+  .ev__title { margin-top: 8px; }
+  .ev__lead { margin-top: 16px; font-size: 17px; line-height: 25px; }
+  .ev__cover { margin-top: 36px; aspect-ratio: 700 / 380; }
+  .ev__layout { margin-top: 44px; grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .ev__aside { max-width: 480px; }
+  .ev__related { margin-top: 80px; padding-top: 40px; }
+  .ev__related-title { font-size: 26px; line-height: 36px; }
+  .ev { padding-bottom: 96px; }
+  .ev__missing { margin-top: 20px; }
+}
+@media (max-width: 639px) {
+  .ev__head { margin-top: 18px; }
+  .ev__title { margin-top: 6px; }
+  .ev__lead { margin-top: 14px; font-size: 16px; line-height: 23px; }
+  .ev__cover { margin-top: 28px; margin-inline: calc(-1 * var(--zc-gutter)); aspect-ratio: 390 / 280; }
+  .ev__layout { margin-top: 32px; grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
+  .ev__body { font-size: 15px; line-height: 24px; }
+  .ev__card { padding: 22px 18px 24px; }
+  .ev__related { margin-top: 64px; padding-top: 32px; }
+  .ev__related-title { font-size: 23px; line-height: 32px; }
+  .ev { padding-bottom: 72px; }
+  .ev__missing { margin-top: 18px; }
+  .ev__missing .btn { width: 100%; height: 52px; }
+}
+.ev__facts dd { margin-left: 0; }
+@media (max-width: 1199px) { .ev.is-event .ev__aside { order: -1; } }
+@media (min-width: 640px) and (max-width: 1199px) { .ev__related .ncard:nth-child(3) { display: none; } }
