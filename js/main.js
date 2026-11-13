@@ -42,6 +42,65 @@
     });
   });
 
+  /* ---------- Избранное: кнопка ♡ в карточке товара ----------
+     Данные товара — из кнопки «Добавить к выбору» (data-name/-type/-img/-href) и выбранного формата. */
+  document.querySelectorAll('[data-fav-toggle]').forEach(function (btn) {
+    if (!window.ZC || !ZC.fav) return;
+    var src = document.querySelector('[data-add-to-cart]');
+    if (!src) return;
+    var id = src.dataset.name;
+    var paint = function () {
+      var on = ZC.fav.has(id);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.setAttribute('aria-label', on ? 'Убрать из избранного' : 'Добавить в избранное');
+      btn.title = on ? 'В избранном' : 'В избранное';
+    };
+    btn.addEventListener('click', function () {
+      var f = document.querySelector('.prod__formats input:checked');
+      ZC.fav.toggle({ id: id, name: src.dataset.name, type: src.dataset.type, fmt: f ? f.value : '', price: f ? +f.dataset.price : 0, img: src.dataset.img, href: src.dataset.href });
+      paint();
+    });
+    document.addEventListener('zc-fav', paint);
+    paint();
+  });
+
+  /* ---------- Страница «Избранное» ---------- */
+  var favList = document.querySelector('[data-fav-list]');
+  if (favList && window.ZC && ZC.fav) {
+    var fesc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var renderFav = function () {
+      var items = ZC.fav.get(), n = items.length;
+      favList.innerHTML = items.map(function (i) {
+        return '<article class="pcard fav-card" data-id="' + fesc(i.id) + '">' +
+          '<a class="pcard__ph" href="' + fesc(i.href) + '" tabindex="-1" aria-hidden="true">' + (i.img ? '<img src="' + fesc(i.img) + '" alt="" loading="lazy">' : '') + '</a>' +
+          '<button class="fav-card__del" type="button" data-fav-del aria-label="Убрать «' + fesc(i.name) + '» из избранного" title="Убрать из избранного"></button>' +
+          '<p class="pcard__type">' + fesc(i.type) + '</p>' +
+          '<h3 class="pcard__name"><a href="' + fesc(i.href) + '">' + fesc(i.name) + '</a></h3>' +
+          '<p class="pcard__price">' + (i.fmt ? fesc(i.fmt) + '  /  ' : '') + rub(i.price || 0) + '</p>' +
+          '<button class="fav-card__cart" type="button" data-fav-cart>В корзину  +</button>' +
+        '</article>';
+      }).join('');
+      document.body.classList.toggle('fav-empty', !n);
+      document.querySelector('[data-fav-empty]').hidden = !!n;
+      document.querySelector('[data-fav-total]').textContent = n + ' ' + (ZC.cart ? ZC.cart.plural(n, ['товар', 'товара', 'товаров']) : 'шт');
+    };
+    favList.addEventListener('click', function (e) {
+      var card = e.target.closest('.fav-card'); if (!card) return;
+      var item = ZC.fav.get().filter(function (i) { return i.id === card.dataset.id; })[0]; if (!item) return;
+      if (e.target.closest('[data-fav-del]')) { ZC.fav.toggle(item); return; }
+      var add = e.target.closest('[data-fav-cart]');
+      if (add && ZC.cart) {
+        ZC.cart.add({ id: item.name + '|' + item.fmt, name: item.name, type: item.type, fmt: item.fmt, price: item.price, img: item.img, href: item.href });
+        add.textContent = 'В корзине  ✓'; add.classList.add('is-done');
+        setTimeout(function () { add.textContent = 'В корзину  +'; add.classList.remove('is-done'); }, 1800);
+      }
+    });
+    var clear = document.querySelector('[data-fav-clear]');
+    if (clear) clear.addEventListener('click', function () { ZC.fav.set([], false); });
+    document.addEventListener('zc-fav', renderFav);
+    renderFav();
+  }
+
   /* ---------- Корзина и оформление заказа ----------
      Условия получения — в CO; уточнить у заказчика (срок заказа, стоимость доставки до 2 000 ₽). */
   var CO = {

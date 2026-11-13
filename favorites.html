@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Избранное — Зелёное Царство</title>
+  <meta name="description" content="Сохранённые десерты и напитки «Зелёного Царства».">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css?v=11131617">
+  <link rel="stylesheet" href="css/base.css?v=11131617">
+  <link rel="stylesheet" href="css/components.css?v=11131617">
+  <link rel="stylesheet" href="css/components-v2.css?v=11131617">
+  <link rel="stylesheet" href="css/pages.css?v=11131617">
+  <link rel="stylesheet" href="css/pages-v2.css?v=11131617">
+</head>
+<body class="hdr-solid">
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <!-- Список рисует js/main.js из избранного в браузере (localStorage «zc-fav»). -->
+  <main class="fav wrap">
+    <nav class="crumbs lg__crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <span aria-current="page">Избранное</span></nav>
+    <h1 class="display display--m fav__title">Избранное</h1>
+    <div class="fav__bar" data-fav-filled>
+      <p class="fav__meta"><span data-fav-total>0 товаров</span>  ·  список хранится в этом браузере</p>
+      <button class="fav__clear" type="button" data-fav-clear>Очистить список</button>
+    </div>
+
+    <div class="pgrid fav__grid" data-fav-list></div>
+
+    <div class="fav__empty" data-fav-empty hidden>
+      <p class="fav__empty-t">Здесь пока пусто</p>
+      <p class="fav__empty-d">Нажмите ♡ на странице товара — десерт сохранится здесь, чтобы вернуться к нему позже.</p>
+      <a class="btn btn--primary" href="catalog.html">Перейти в каталог</a>
+    </div>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js?v=11131617"></script>
+  <script src="js/main.js?v=11131617"></script>
+</body>
+</html>

@@ -39,8 +39,7 @@
           '<a class="w-events only-d" href="events.html">Мероприятия</a>' +
           '<a class="w-contacts hide-m" href="contacts.html">Контакты</a>' +
           '<a class="w-search only-d" href="search.html">Поиск   ↗</a>' +
-          /* TODO: избранное */
-          '<a class="w-fav" href="#" aria-label="Избранное"><span class="hide-m">♡</span><img class="only-m" src="' + A + 'icons/heart.svg" alt="" width="20" height="20"></a>' +
+          '<a class="w-fav" href="favorites.html" data-fav-link aria-label="Избранное"><span class="hide-m">♡</span><img class="only-m" src="' + A + 'icons/heart.svg" alt="" width="20" height="20"><span class="w-cart__n w-fav__n" data-fav-count hidden></span></a>' +
           '<a class="w-call" href="' + TEL + '" aria-label="Позвонить ' + PHONE + '">' + phoneIcon + '</a>' +
           '<a class="w-search only-t" href="search.html">Поиск</a>' +
           '<a class="w-cart" href="cart.html" data-cart-link><span>Корзина</span><span class="w-cart__n" data-cart-count hidden></span></a>' +
@@ -201,6 +200,42 @@
   paintCart(false);
   /* изменения из другой вкладки */
   window.addEventListener('storage', function (e) { if (e.key === CART) { paintCart(false); document.dispatchEvent(new CustomEvent('zc-cart')); } });
+
+  /* ---------- Избранное: localStorage «zc-fav», общий счётчик у ♡ в шапке ----------
+     Позиция: { id (= название товара), name, type, fmt, price, img, href }. */
+  var FAV = 'zc-fav';
+  function favGet() {
+    try { var a = JSON.parse(localStorage.getItem(FAV) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+  }
+  function paintFav(bump) {
+    var n = favGet().length;
+    document.querySelectorAll('[data-fav-count]').forEach(function (b) {
+      b.textContent = n > 99 ? '99+' : n;
+      b.hidden = !n;
+      if (bump && n) { b.classList.remove('is-bump'); void b.offsetWidth; b.classList.add('is-bump'); }
+    });
+    document.querySelectorAll('[data-fav-link]').forEach(function (a) {
+      a.setAttribute('aria-label', n ? 'Избранное, ' + n + ' ' + plural(n, ['товар', 'товара', 'товаров']) : 'Избранное, пусто');
+    });
+  }
+  function favSet(list, bump) {
+    try { localStorage.setItem(FAV, JSON.stringify(list)); } catch (e) {}
+    paintFav(bump);
+    document.dispatchEvent(new CustomEvent('zc-fav'));
+  }
+  window.ZC.fav = {
+    get: favGet,
+    set: favSet,
+    has: function (id) { return favGet().some(function (i) { return i.id === id; }); },
+    /* добавить или убрать; возвращает true, если товар теперь в избранном */
+    toggle: function (item) {
+      var list = favGet(), on = list.some(function (i) { return i.id === item.id; });
+      favSet(on ? list.filter(function (i) { return i.id !== item.id; }) : list.concat([item]), !on);
+      return !on;
+    }
+  };
+  paintFav(false);
+  window.addEventListener('storage', function (e) { if (e.key === FAV) { paintFav(false); document.dispatchEvent(new CustomEvent('zc-fav')); } });
 
   /* ---------- Отправка заявок: ZC.send(вид, {поле: значение}) → Promise ----------
      Все формы сайта (заказ из корзины, торт на заказ) отправляют данные только через эту функцию.

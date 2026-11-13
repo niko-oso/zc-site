@@ -366,3 +366,54 @@
 @media (max-width: 639px) {
   .media { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ==========================================================================
+   Избранное (favorites.html, 13.11) — светлая страница как «Поиск»;
+   карточки — .pcard; сердце-кнопка на фото убирает из списка, «В корзину +» — формат из карточки.
+   ========================================================================== */
+.fav { color: var(--zc-ink); }
+.fav__title { color: var(--zc-ink); }
+.fav__bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; padding-bottom: 18px; border-bottom: 1px solid var(--zc-line-2); }
+.fav__meta { font-size: 14px; line-height: 19px; color: var(--zc-muted-3); white-space: pre-wrap; }
+.fav__clear { font-size: 14px; line-height: 19px; font-weight: 500; color: var(--zc-olive); text-decoration: underline; text-underline-offset: 3px; }
+.fav-empty [data-fav-filled] { display: none; }
+.fav-card { position: relative; }
+.fav-card .pcard__ph { display: block; }
+.fav-card .pcard__name a { color: inherit; }
+.fav-card__del { position: absolute; top: 12px; right: 12px; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--zc-paper); color: var(--zc-olive); box-shadow: 0 4px 14px rgba(39, 30, 27, .14); transition: transform .2s; }
+.fav-card__del:hover { transform: scale(1.06); }
+.fav-card__del::before { width: 18px; height: 18px; }
+.fav-card__cart { align-self: flex-start; font-size: 14px; line-height: 19px; font-weight: 500; color: var(--zc-olive); white-space: pre; transition: opacity .2s; }
+.fav-card__cart:hover { opacity: .7; }
+.fav-card__cart.is-done { color: var(--zc-muted-3); }
+.fav__empty { max-width: 560px; }
+.fav__empty-t { font-size: 24px; line-height: 33px; font-weight: 500; }
+.fav__empty-d { margin-top: 12px; font-size: 16px; line-height: 23px; color: var(--zc-muted-3); }
+.fav__empty .btn { margin-top: 28px; min-width: 228px; }
+@media (min-width: 1200px) {
+  .fav__title { margin-top: 26px; }
+  .fav__bar { margin-top: 32px; }
+  .fav__grid { margin-top: 44px; }
+  .fav__empty { margin-top: 40px; }
+  .fav { padding-bottom: 120px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .fav__title { margin-top: 20px; }
+  .fav__bar { margin-top: 26px; }
+  .fav__grid { margin-top: 40px; }
+  .fav__empty { margin-top: 32px; }
+  .fav { padding-bottom: 96px; }
+}
+@media (max-width: 639px) {
+  .fav__title { margin-top: 18px; }
+  .fav__bar { margin-top: 20px; }
+  .fav__grid { margin-top: 32px; row-gap: 48px; }
+  .fav-card__del { top: 8px; right: 8px; width: 36px; height: 36px; }
+  .fav-card__del::before { width: 16px; height: 16px; }
+  .fav-card__cart { font-size: 13px; }
+  .fav__empty { margin-top: 28px; }
+  .fav__empty-t { font-size: 20px; line-height: 28px; }
+  .fav__empty-d { font-size: 14px; line-height: 20px; }
+  .fav__empty .btn { width: 100%; height: 52px; }
+  .fav { padding-bottom: 72px; }
+}
