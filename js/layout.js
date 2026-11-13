@@ -121,10 +121,10 @@
           '<p class="ftr__line only-m"><a href="delivery.html">Доставка и оплата</a>  ·  <a href="how-to-order.html">Как заказать</a>\n' +
           '<a href="index.html#reviews">Отзывы</a>  ·  <a href="faq.html">Вопросы и ответы</a>  ·  <a href="promo.html">Акции</a></p></div>' +
         '<div class="ftr__col"><h3>О компании</h3>' +
-          /* TODO: «Примеры работ» и «Блог» — отдельных страниц нет; пока ведут на торт на заказ и «Мероприятия» */
-          '<ul class="hide-m"><li><a href="about.html">О нас</a></li><li><a href="cake.html">Примеры работ</a></li>' +
-          '<li><a href="events.html">Мероприятия</a></li><li><a href="events.html">Блог</a></li></ul>' +
-          '<p class="ftr__line only-m"><a href="about.html">О нас</a>  ·  <a href="events.html">Мероприятия</a>  ·  <a href="events.html">Блог</a></p></div>' +
+          /* «Примеры работ» удалены (попали в макет по ошибке, 13.11).
+             «Блог» скрыт до появления страницы — вернуть пунктом: <li><a href="blog.html">Блог</a></li> и «  ·  <a href="blog.html">Блог</a>» в мобильной строке. */
+          '<ul class="hide-m"><li><a href="about.html">О нас</a></li><li><a href="events.html">Мероприятия</a></li></ul>' +
+          '<p class="ftr__line only-m"><a href="about.html">О нас</a>  ·  <a href="events.html">Мероприятия</a></p></div>' +
         '<div class="ftr__col ftr__col--contacts"><h3><a href="contacts.html">Контакты</a></h3>' +
           '<div class="ftr__reach">' +
             '<a href="' + TEL + '">' + PHONE + '</a>' +
