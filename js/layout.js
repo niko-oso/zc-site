@@ -214,7 +214,6 @@
       b.hidden = !n;
     });
     document.querySelectorAll('[data-fav-link]').forEach(function (a) {
-      a.classList.toggle('has-items', n > 0);
       if (bump && n) { a.classList.remove('is-bump'); void a.offsetWidth; a.classList.add('is-bump'); }
       a.setAttribute('aria-label', n ? 'Избранное, ' + n + ' ' + plural(n, ['товар', 'товара', 'товаров']) : 'Избранное, пусто');
     });
