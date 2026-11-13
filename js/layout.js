@@ -39,7 +39,7 @@
           '<a class="w-events only-d" href="events.html">Мероприятия</a>' +
           '<a class="w-contacts hide-m" href="contacts.html">Контакты</a>' +
           '<a class="w-search only-d" href="search.html">Поиск   ↗</a>' +
-          '<a class="w-fav" href="favorites.html" data-fav-link aria-label="Избранное"><span class="hide-m">♡</span><img class="only-m" src="' + A + 'icons/heart.svg" alt="" width="20" height="20"><span class="w-cart__n w-fav__n" data-fav-count hidden></span></a>' +
+          '<a class="w-fav" href="favorites.html" data-fav-link aria-label="Избранное"><span class="w-fav__ico" aria-hidden="true"></span><span class="w-fav__n" data-fav-count hidden></span></a>' +
           '<a class="w-call" href="' + TEL + '" aria-label="Позвонить ' + PHONE + '">' + phoneIcon + '</a>' +
           '<a class="w-search only-t" href="search.html">Поиск</a>' +
           '<a class="w-cart" href="cart.html" data-cart-link><span>Корзина</span><span class="w-cart__n" data-cart-count hidden></span></a>' +
@@ -212,9 +212,10 @@
     document.querySelectorAll('[data-fav-count]').forEach(function (b) {
       b.textContent = n > 99 ? '99+' : n;
       b.hidden = !n;
-      if (bump && n) { b.classList.remove('is-bump'); void b.offsetWidth; b.classList.add('is-bump'); }
     });
     document.querySelectorAll('[data-fav-link]').forEach(function (a) {
+      a.classList.toggle('has-items', n > 0);
+      if (bump && n) { a.classList.remove('is-bump'); void a.offsetWidth; a.classList.add('is-bump'); }
       a.setAttribute('aria-label', n ? 'Избранное, ' + n + ' ' + plural(n, ['товар', 'товара', 'товаров']) : 'Избранное, пусто');
     });
   }
