@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Сборка шапки и подвала</title>
+<!--
+  Отдаёт шапку, каталог и подвал из tools/partials.js в виде JSON.
+  Запуск: tools/build-layout.ps1 (открывает страницу в headless Chrome и вставляет блоки во все *.html).
+-->
+<pre id="out"></pre>
+<script src="partials.js"></script>
+<script>document.getElementById('out').textContent = JSON.stringify(window.ZC_PARTIALS);</script>

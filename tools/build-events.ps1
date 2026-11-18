@@ -29,3 +29,6 @@ $new = [regex]::Replace($ev, '(<div class="ngrid" data-events-list>)[\s\S]*?(</d
 if ($new -eq $ev -and $ev -notmatch [regex]::Escape($data.list)) { throw 'Не нашёл список в events.html' }
 [IO.File]::WriteAllText($evPath, $new, $utf8)
 "  events.html: карточки обновлены (v=$Version)"
+
+# шапка, каталог и подвал — статичной разметкой
+& (Join-Path $PSScriptRoot 'build-layout.ps1')
