@@ -60,7 +60,7 @@
 
   function card(p) {
     var img = p[4].split('|');
-    var ph = img[0] ? '<img' + (img[1] ? ' class="' + img[1] + '"' : '') + ' src="' + img[0] + '" alt="" loading="lazy">' : '';
+    var ph = img[0] ? '<img' + (img[1] ? ' class="' + img[1] + '"' : '') + ' src="' + img[0] + '" alt="' + esc(p[1] + ' «' + p[0] + '»') + '" loading="lazy">' : '';
     return '<a class="pcard" href="' + p[5] + '"><div class="pcard__ph">' + ph + '</div>' +
       '<p class="pcard__type">' + esc(p[1]) + '</p><h3 class="pcard__name">' + esc(p[0]) + '</h3>' +
       '<p class="pcard__price">' + p[2] + '  /  ' + rub(p[3]) + '</p></a>';

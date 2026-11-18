@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=11131635">
-  <link rel="stylesheet" href="css/base.css?v=11131635">
-  <link rel="stylesheet" href="css/components.css?v=11131635">
-  <link rel="stylesheet" href="css/components-v2.css?v=11131635">
-  <link rel="stylesheet" href="css/pages.css?v=11131635">
-  <link rel="stylesheet" href="css/pages-v2.css?v=11131635">
+  <link rel="stylesheet" href="css/tokens.css?v=11190229">
+  <link rel="stylesheet" href="css/base.css?v=11190229">
+  <link rel="stylesheet" href="css/components.css?v=11190229">
+  <link rel="stylesheet" href="css/components-v2.css?v=11190229">
+  <link rel="stylesheet" href="css/pages.css?v=11190229">
+  <link rel="stylesheet" href="css/pages-v2.css?v=11190229">
 </head>
 <body>
   <div data-zc="header"></div>
@@ -23,7 +23,7 @@
     <div class="cover cover--flip">
       <picture>
         <source media="(max-width: 1199px)" srcset="assets/img/cover-mosaic-2.webp">
-        <img src="assets/img/cover-mosaic.webp" alt="">
+        <img src="assets/img/cover-mosaic.webp" alt="Фирменная мозаика «Зелёного Царства»">
       </picture>
     </div>
 
@@ -39,15 +39,23 @@
       </div>
 
       <!-- Карточки строит js/events.js (мероприятия первыми, затем новости; у каждой — своя страница event.html?id=…) -->
-      <div class="ngrid" data-events-list></div>
+      <div class="ngrid" data-events-list>
+        <article class="ncard"><a class="ncard__ph" href="event-primer-meropriyatiya.html" tabindex="-1" aria-hidden="true"><img src="img/eskimo-2-600.webp" alt="Так будет выглядеть анонс мероприятия" loading="lazy"></a><p class="ncard__tag">МЕРОПРИЯТИЕ  ·  ПРИМЕР</p><h2 class="ncard__title"><a href="event-primer-meropriyatiya.html">Так будет выглядеть анонс мероприятия</a></h2><p class="ncard__lead">Шаблон для дегустаций, мастер-классов и встреч: дата, время, место и запись — в блоке «Коротко».</p><a class="link-arrow" href="event-primer-meropriyatiya.html">Подробнее о мероприятии  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-bento-k-prazdniku.html" tabindex="-1" aria-hidden="true"><img src="img/tropicheskoe-naslazhdenie-600.webp" alt="Бенто-торты к празднику" loading="lazy"></a><p class="ncard__tag">НОВОСТИ  ·  НА ЗАКАЗ</p><h2 class="ncard__title"><a href="event-bento-k-prazdniku.html">Бенто-торты к празднику</a></h2><p class="ncard__lead">Принимаем заявки на бенто «Тропическое наслаждение» 500 г. Оформление и надпись обсуждаем с менеджером.</p><a class="link-arrow" href="event-bento-k-prazdniku.html">Читать  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-samovyvoz.html" tabindex="-1" aria-hidden="true"><img src="img/solnechnaya-radost-600.webp" alt="Самовывоз в ТРК «Гранд Каньон»" loading="lazy"></a><p class="ncard__tag">НОВОСТИ  ·  САМОВЫВОЗ</p><h2 class="ncard__title"><a href="event-samovyvoz.html">Самовывоз в ТРК «Гранд Каньон»</a></h2><p class="ncard__lead">Заказ можно забрать в ТРК «Гранд Каньон» на проспекте Энгельса. Перед поездкой согласуйте готовность.</p><a class="link-arrow" href="event-samovyvoz.html">Читать  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-razmer-porcii.html" tabindex="-1" aria-hidden="true"><img src="img/limon-600.webp" alt="Как выбрать размер порции" loading="lazy"></a><p class="ncard__tag">ВЫБОР ДЕСЕРТА</p><h2 class="ncard__title"><a href="event-razmer-porcii.html">Как выбрать размер порции</a></h2><p class="ncard__lead">Сравниваем доступные веса и цены в карточке товара — на примере пирожных.</p><a class="link-arrow" href="event-razmer-porcii.html">Читать  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-chto-podarit.html" tabindex="-1" aria-hidden="true"><img src="assets/img/news-podarok.webp" alt="Что подарить любителю сладкого" loading="lazy"></a><p class="ncard__tag">ПОДАРКИ</p><h2 class="ncard__title"><a href="event-chto-podarit.html">Что подарить любителю сладкого</a></h2><p class="ncard__lead">Набор конфет или бенто-торт: что выбрать и когда оформить заказ.</p><a class="link-arrow" href="event-chto-podarit.html">Читать  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-sostav-i-allergeny.html" tabindex="-1" aria-hidden="true"><img src="img/rozovyj-barhat-2-600.webp" alt="Где смотреть состав и аллергены" loading="lazy"></a><p class="ncard__tag">ВЫБОР ДЕСЕРТА</p><h2 class="ncard__title"><a href="event-sostav-i-allergeny.html">Где смотреть состав и аллергены</a></h2><p class="ncard__lead">Состав, пищевая ценность и хранение — в карточке каждого десерта. При аллергии уточните детали у менеджера.</p><a class="link-arrow" href="event-sostav-i-allergeny.html">Читать  ↗</a></article>
+        <article class="ncard"><a class="ncard__ph" href="event-dostavka-vt-pt.html" tabindex="-1" aria-hidden="true"><img src="assets/img/cat-smuzi.webp" alt="Доставка по вторникам и пятницам" loading="lazy"></a><p class="ncard__tag">НОВОСТИ  ·  ДОСТАВКА</p><h2 class="ncard__title"><a href="event-dostavka-vt-pt.html">Доставка по вторникам и пятницам</a></h2><p class="ncard__lead">Бесплатно при заказе от 2 000 ₽. Для небольших заказов стоимость доставки рассчитает менеджер.</p><a class="link-arrow" href="event-dostavka-vt-pt.html">Читать  ↗</a></article>
+      </div>
 
       <p class="listing__note">Пишем о новинках и отвечаем на частые вопросы. Не нашли ответ — <a href="contacts.html">свяжитесь с нами</a>.</p>
     </div>
   </main>
 
   <div data-zc="footer"></div>
-  <script src="js/layout.js?v=11131635"></script>
-  <script src="js/main.js?v=11131635"></script>
-  <script src="js/events.js?v=11131635"></script>
+  <script src="js/layout.js?v=11190229"></script>
+  <script src="js/main.js?v=11190229"></script>
+  <script src="js/events.js?v=11190229"></script>
 </body>
 </html>

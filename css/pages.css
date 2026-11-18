@@ -737,3 +737,66 @@
   .prod__fav { width: 52px; height: 52px; }
 }
 @media (prefers-reduced-motion: reduce) { .prod__fav[aria-pressed="true"]::before { animation: none; } }
+
+/* Главная (19.11, SEO): H1 — подпись над слоганом; «Отражение себя» — оформление (p.ttl) */
+.hero__h1 { font-size: 14px; line-height: 19px; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; }
+@media (min-width: 1200px) { .hero__h1 { margin: 0 0 20px -6px; } }
+@media (min-width: 640px) and (max-width: 1199px) { .hero__h1 { margin: 0 0 16px 1px; font-size: 13px; line-height: 18px; } }
+@media (max-width: 639px) { .hero__h1 { margin: 0 0 14px; font-size: 12px; line-height: 17px; } }
+
+/* Каталог как хаб «Десерты» (19.11): заголовок-SVG «Десерты» в шапке листинга — масштабы как у «Пирожных» */
+@media (min-width: 640px) and (max-width: 1199px) { .listing__head .ttl--deserty { --s: .74; } }
+@media (max-width: 639px) { .listing__head .ttl--deserty { top: 248px; --s: .43; } }
+
+/* Карточка товара (19.11, SEO): заголовки блоков — h2 внутри summary; «Похожие десерты» */
+.acc__h { font: inherit; margin: 0; }
+.prod__related { border-top: 1px solid var(--zc-line-on-stone); color: var(--zc-paper); }
+.prod__related-title { font-size: 30px; line-height: 41px; font-weight: 500; }
+.prod__related .pcard { background: transparent; color: var(--zc-paper); }
+.prod__related .pcard__type { color: rgba(255, 250, 244, .82); }
+.prod__related-all { display: inline-block; color: var(--zc-paper); }
+@media (min-width: 1200px) {
+  .prod__related { margin-top: 96px; padding-top: 48px; }
+  .prod__related .pgrid { margin-top: 36px; }
+  .prod__related-all { margin-top: 40px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .prod__related { margin-top: 80px; padding-top: 40px; }
+  .prod__related-title { font-size: 26px; line-height: 36px; }
+  .prod__related .pgrid { margin-top: 32px; }
+  .prod__related .pcard:nth-child(4) { display: none; }
+  .prod__related-all { margin-top: 36px; }
+}
+@media (max-width: 639px) {
+  .prod__related { margin-top: 64px; padding-top: 32px; }
+  .prod__related-title { font-size: 23px; line-height: 32px; }
+  .prod__related .pgrid { margin-top: 28px; row-gap: 40px; }
+  .prod__related-all { margin-top: 32px; }
+}
+
+/* Доставка (19.11): таблица условий — те же строки, что «Что важно знать», но компактнее */
+.faq--terms .faq__row { min-height: 0; }
+.faq__a a { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 1200px) {
+  .faq--terms .faq__row { padding: 19px 0 22px; }
+  .faq--terms + .faq__title, .faq--terms ~ .faq__title { margin-top: 85px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) { .faq--terms .faq__row { padding: 18px 0 24px; } }
+@media (max-width: 639px) { .faq--terms .faq__row { min-height: 0; padding: 18px 0 22px; } }
+
+/* Корзина (19.11): поле промокода на серебряной плашке итога */
+.promo-f { margin-top: 20px; }
+.promo-f__label { display: block; font-size: 12px; line-height: 17px; font-weight: 500; text-transform: uppercase; color: var(--zc-muted-3); }
+.promo-f__row { display: flex; margin-top: 8px; border: 1px solid rgba(39, 30, 27, .28); background: rgba(255, 250, 244, .55); transition: border-color .2s; }
+.promo-f__row:focus-within { border-color: var(--zc-olive); }
+.promo-f__row input { flex: 1; min-width: 0; height: 44px; padding: 0 14px; border: 0; background: none; outline: none; color: var(--zc-ink); font: 500 15px/21px var(--zc-font); text-transform: uppercase; }
+.promo-f__row input::placeholder { color: var(--zc-muted); text-transform: none; font-weight: 400; }
+.promo-f__row input[readonly] { color: var(--zc-olive); }
+.promo-f__btn { flex: none; padding: 0 16px; font-size: 14px; font-weight: 500; color: var(--zc-olive); border-left: 1px solid rgba(39, 30, 27, .16); transition: background .2s; }
+.promo-f__btn:hover { background: rgba(61, 72, 45, .08); }
+.promo-f__msg { margin-top: 8px; font-size: 13px; line-height: 18px; color: var(--zc-olive); }
+.promo-f__msg.is-bad { color: #8a2b1d; }
+.sum__disc dd { color: var(--zc-olive); }
+@media (min-width: 1200px) { .prod__related { padding-bottom: 120px; } }
+@media (min-width: 640px) and (max-width: 1199px) { .prod__related { padding-bottom: 96px; } }
+@media (max-width: 639px) { .prod__related { padding-bottom: 72px; } }

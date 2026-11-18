@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=11131635">
-  <link rel="stylesheet" href="css/base.css?v=11131635">
-  <link rel="stylesheet" href="css/components.css?v=11131635">
-  <link rel="stylesheet" href="css/components-v2.css?v=11131635">
-  <link rel="stylesheet" href="css/pages.css?v=11131635">
+  <link rel="stylesheet" href="css/tokens.css?v=11190229">
+  <link rel="stylesheet" href="css/base.css?v=11190229">
+  <link rel="stylesheet" href="css/components.css?v=11190229">
+  <link rel="stylesheet" href="css/components-v2.css?v=11190229">
+  <link rel="stylesheet" href="css/pages.css?v=11190229">
 </head>
 <body class="is-stone">
   <div data-zc="header"></div>
@@ -20,7 +20,7 @@
 
   <main class="cart wrap">
     <div class="cart__head">
-      <h1 class="ttl ttl--korzina"><span class="sr-only">Корзина</span><img src="assets/titles/korzina.svg" alt=""></h1>
+      <h1 class="ttl ttl--korzina"><span class="sr-only">Корзина</span><img src="assets/titles/korzina.svg" alt="Корзина" aria-hidden="true"></h1>
       <p class="cart__sub"><span class="only-d">Соберите любимые вкусы, выберите способ получения — менеджер подтвердит заказ.</span><span class="hide-d">Соберите заказ — менеджер подтвердит наличие и время.</span></p>
     </div>
     <div class="cart__rule cart__rule--top hide-d"></div>
@@ -108,8 +108,18 @@
         <div class="sum__in">
           <dl class="sum__rows">
             <div><dt data-sum-qty>Товары</dt><dd data-sum-goods>0 ₽</dd></div>
+            <div class="sum__disc" data-sum-disc-row hidden><dt data-sum-disc-label>Скидка по промокоду</dt><dd data-sum-disc>−0 ₽</dd></div>
             <div><dt>Получение</dt><dd data-sum-receive>Самовывоз · бесплатно</dd></div>
           </dl>
+          <!-- Промокод (19.11): коды и скидки — объект PROMO в js/main.js -->
+          <div class="promo-f">
+            <label class="promo-f__label" for="co-promo">Промокод</label>
+            <div class="promo-f__row">
+              <input id="co-promo" type="text" name="promo" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Например, ПРИВЕТ10" data-promo-input>
+              <button class="promo-f__btn" type="button" data-promo-apply>Применить</button>
+            </div>
+            <p class="promo-f__msg" data-promo-msg hidden role="status"></p>
+          </div>
           <div class="sum__free" data-free>
             <p data-free-text>До бесплатной доставки курьером — 2 000 ₽</p>
             <div class="sum__bar" aria-hidden="true"><span data-free-bar></span></div>
@@ -141,7 +151,7 @@
   </main>
 
   <div data-zc="footer"></div>
-  <script src="js/layout.js?v=11131635"></script>
-  <script src="js/main.js?v=11131635"></script>
+  <script src="js/layout.js?v=11190229"></script>
+  <script src="js/main.js?v=11190229"></script>
 </body>
 </html>

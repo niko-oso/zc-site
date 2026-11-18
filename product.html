@@ -8,30 +8,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=11131635">
-  <link rel="stylesheet" href="css/base.css?v=11131635">
-  <link rel="stylesheet" href="css/components.css?v=11131635">
-  <link rel="stylesheet" href="css/pages.css?v=11131635">
+  <link rel="stylesheet" href="css/tokens.css?v=11190229">
+  <link rel="stylesheet" href="css/base.css?v=11190229">
+  <link rel="stylesheet" href="css/components.css?v=11190229">
+  <link rel="stylesheet" href="css/pages.css?v=11190229">
 </head>
 <body class="is-stone">
   <div data-zc="header"></div>
   <div data-zc="menu"></div>
 
   <main class="prod-page wrap">
-    <nav class="crumbs" aria-label="Хлебные крошки"><span class="only-d"><a href="index.html">Главная</a>  /  <a href="catalog.html">Каталог</a>  /  <a href="category.html">Пирожные</a>  /  <span aria-current="page">Розовый бархат</span></span><span class="only-t"><a href="index.html">Главная</a>  /  <a href="catalog.html">Десерты</a>  /  <a href="category.html">Пирожные</a>  /  <span aria-current="page">Розовый бархат</span></span><span class="only-m"><a href="catalog.html">Десерты</a>  /  <a href="category.html">Пирожные</a>  /  <span aria-current="page">Розовый бархат</span></span></nav>
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <a href="catalog.html">Десерты</a>  /  <a href="category.html">Пирожные</a>  /  <span aria-current="page">Розовый бархат</span></nav>
 
     <div class="prod">
       <div class="prod__gallery">
         <div class="prod__main"><img src="img/rozovyj-barhat.webp" alt="Пирожное «Розовый бархат»" data-gallery-main></div>
         <div class="prod__thumbs">
-          <button class="prod__thumb" type="button" aria-current="true" data-src="img/rozovyj-barhat.webp" aria-label="Фото 1"><img src="img/rozovyj-barhat-600.webp" alt=""></button>
-          <button class="prod__thumb" type="button" data-src="img/rozovyj-barhat-2.webp" aria-label="Фото 2"><img src="img/rozovyj-barhat-2-600.webp" alt=""></button>
-          <button class="prod__thumb" type="button" data-src="img/rozovyj-barhat-2.webp" aria-label="Фото 3"><img src="img/rozovyj-barhat-2-600.webp" alt=""></button>
+          <button class="prod__thumb" type="button" aria-current="true" data-src="img/rozovyj-barhat.webp" aria-label="Фото 1"><img src="img/rozovyj-barhat-600.webp" alt="Розовый бархат — фото 1"></button>
+          <button class="prod__thumb" type="button" data-src="img/rozovyj-barhat-2.webp" aria-label="Фото 2"><img src="img/rozovyj-barhat-2-600.webp" alt="Розовый бархат — фото 2"></button>
+          <button class="prod__thumb" type="button" data-src="img/rozovyj-barhat-2.webp" aria-label="Фото 3"><img src="img/rozovyj-barhat-2-600.webp" alt="Розовый бархат — фото 3"></button>
         </div>
       </div>
 
       <div class="prod__info">
-        <h1 class="ttl ttl--rozovyj"><span class="sr-only">Розовый бархат</span><img src="assets/titles/rozovyj-barhat.svg" alt=""></h1>
+        <h1 class="ttl ttl--rozovyj"><span class="sr-only">Розовый бархат</span><img src="assets/titles/rozovyj-barhat.svg" alt="Розовый бархат" aria-hidden="true"></h1>
         <p class="prod__sub"><span class="only-d">Тихий повод сделать паузу и выбрать что-то для себя.</span><span class="hide-d">Нежный вкус и выразительная форма.</span></p>
         <div class="prod__rule"></div>
         <p class="prod__label">ВЫБЕРИТЕ ФОРМАТ</p>
@@ -53,12 +53,12 @@
       <!-- Карточка / раскрытые блоки: открыты по умолчанию, сворачиваются по клику -->
       <div class="prod__acc">
         <details class="acc" open>
-          <summary>Состав и аллергены <span class="acc__sign" aria-hidden="true"></span></summary>
+          <summary><h2 class="acc__h">Состав и аллергены</h2> <span class="acc__sign" aria-hidden="true"></span></summary>
           <p class="acc__body">Ферментированный <b>кешью</b>, <b>миндальное молоко</b>, сироп топинамбура, <b>миндальная мука</b>, кокосовое масло, малина, псиллиум, розовая матча, лецитин, розовая гималайская соль, ваниль.</p>
           <p class="acc__allergen">Аллергены: кешью и миндаль.</p>
         </details>
         <details class="acc" open>
-          <summary>Пищевая ценность <span class="acc__sign" aria-hidden="true"></span></summary>
+          <summary><h2 class="acc__h">Пищевая ценность</h2> <span class="acc__sign" aria-hidden="true"></span></summary>
           <table class="kbju">
             <thead><tr><th>Показатель</th><th>На 100 г</th><th>На 40 г</th></tr></thead>
             <tbody>
@@ -71,15 +71,47 @@
           <p class="acc__fine">На 100 г — пересчёт по данным на порцию 40 г.</p>
         </details>
         <details class="acc" open>
-          <summary>Срок и условия хранения <span class="acc__sign" aria-hidden="true"></span></summary>
+          <summary><h2 class="acc__h">Срок и условия хранения</h2> <span class="acc__sign" aria-hidden="true"></span></summary>
           <p class="acc__body">Срок годности и температура хранения — уточняются.</p>
         </details>
       </div>
     </div>
+
+    <!-- Похожие десерты: тот же раздел (пирожные). Ссылки — на шаблон карточки, пока других карточек нет -->
+    <section class="prod__related" aria-labelledby="prod-rel">
+      <h2 class="prod__related-title" id="prod-rel">Похожие десерты</h2>
+      <div class="pgrid">
+        <a class="pcard" href="product.html">
+          <div class="pcard__ph"><img src="img/solnechnaya-radost-600.webp" alt="Пирожное «Солнечная радость»" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Солнечная радость</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard" href="product.html">
+          <div class="pcard__ph"><img src="img/lavanda-malina-600.webp" alt="Пирожное «Лавандовая малина»" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Лавандовая малина</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard" href="product.html">
+          <div class="pcard__ph"><img src="img/cheremushkin-600.webp" alt="Пирожное «Черемушкин»" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Черемушкин</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+        <a class="pcard" href="product.html">
+          <div class="pcard__ph"><img src="img/shokoladnyj-trepet-600.webp" alt="Пирожное «Шоколадный трепет»" loading="lazy"></div>
+          <p class="pcard__type">Пирожное</p>
+          <h3 class="pcard__name">Шоколадный трепет</h3>
+          <p class="pcard__price">40 г  /  220 ₽</p>
+        </a>
+      </div>
+      <a class="link-arrow prod__related-all" href="category.html">Все пирожные  ↗</a>
+    </section>
   </main>
 
   <div data-zc="footer"></div>
-  <script src="js/layout.js?v=11131635"></script>
-  <script src="js/main.js?v=11131635"></script>
+  <script src="js/layout.js?v=11190229"></script>
+  <script src="js/main.js?v=11190229"></script>
 </body>
 </html>

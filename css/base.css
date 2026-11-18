@@ -133,3 +133,4 @@ body { overflow-wrap: break-word; }
     width: min(calc(var(--iw) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--iw) / (var(--ox, 0) + var(--iw))));
   }
 }
+.nowrap { white-space: nowrap; }

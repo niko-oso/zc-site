@@ -19,6 +19,7 @@
       '<div class="hdr__top">' +
         '<div class="hdr__top-in">' +
           '<p class="hdr__tag only-d">Авторская растительная кондитерская · Санкт-Петербург</p>' +
+          '<a class="hdr__t-cake hide-d" href="cake.html">Заказать торт  ↗</a>' +
           '<a class="hdr__t-dlv" href="delivery.html"><span class="only-d">Доставка курьером · Самовывоз  ↗</span><span class="hide-d">Доставка и самовывоз  ↗</span></a>' +
           '<a class="hdr__t-tel hide-m" href="' + TEL + '">' + PHONE + '</a>' +
           '<p class="hdr__t-hours hide-m">10:00–19:00</p>' +
@@ -43,6 +44,7 @@
           '<a class="w-call" href="' + TEL + '" aria-label="Позвонить ' + PHONE + '">' + phoneIcon + '</a>' +
           '<a class="w-search only-t" href="search.html">Поиск</a>' +
           '<a class="w-cart" href="cart.html" data-cart-link><span>Корзина</span><span class="w-cart__n" data-cart-count hidden></span></a>' +
+          '<a class="w-cake btn btn--primary only-d" href="cake.html">Заказать торт</a>' +
           '<button class="w-burger only-m" type="button" data-menu-toggle aria-expanded="false" aria-controls="zc-menu" aria-label="Открыть меню">☰</button>' +
         '</nav>' +
       '</div>' +
@@ -59,15 +61,15 @@
 
   var menu =
     '<div class="menu" id="zc-menu" role="dialog" aria-label="Каталог">' +
-      '<div class="menu__strip"><img src="' + A + 'img/hero-mosaic.webp" alt="" loading="lazy" decoding="async"></div>' +
+      '<div class="menu__strip"><img src="' + A + 'img/hero-mosaic.webp" alt="Фирменная мозаика «Зелёного Царства»" loading="lazy" decoding="async"></div>' +
       '<div class="menu__in">' +
         '<button class="menu__close" type="button" data-menu-close>Закрыть  ×</button>' +
         '<a class="menu__search" href="search.html">Поиск по товарам  ⌕</a>' +
         '<div class="menu__rule menu__rule--top only-m"></div>' +
         '<div class="menu__head">' +
           '<h2 class="ttl ttl--katalog"><span class="sr-only">Каталог</span>' +
-            '<img class="hide-m" src="' + A + 'titles/katalog.svg" alt="">' +
-            '<img class="only-m" src="' + A + 'titles/katalog-light.svg" alt="">' +
+            '<img class="hide-m" src="' + A + 'titles/katalog.svg" alt="Каталог" aria-hidden="true">' +
+            '<img class="only-m" src="' + A + 'titles/katalog-light.svg" alt="Каталог" aria-hidden="true">' +
           '</h2>' +
           '<p class="menu__lead">Выберите категорию или откройте весь каталог.</p>' +
         '</div>' +
@@ -304,6 +306,16 @@
     if (e.key === 'Escape' && body.classList.contains('menu-open')) setOpen(false);
   });
   if (location.hash === '#menu') setOpen(true);
+
+  /* ---------- Закреплённая шапка: после прокрутки за пределы шапки — компактная, сверху ---------- */
+  var hdrEl = document.querySelector('.hdr');
+  function stick() {
+    if (!hdrEl) return;
+    var on = window.scrollY > hdrEl.offsetHeight + 40 && !body.classList.contains('menu-open');
+    body.classList.toggle('hdr-stuck', on);
+  }
+  window.addEventListener('scroll', stick, { passive: true });
+  stick();
 
   /* ---------- Кнопка «Наверх»: появляется после первого экрана ---------- */
   document.body.insertAdjacentHTML('beforeend', '<button class="to-top" type="button" aria-label="Наверх"></button>');

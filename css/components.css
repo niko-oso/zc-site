@@ -581,3 +581,56 @@
   .hdr__row .w-fav .w-fav__n { min-width: 18px; height: 18px; padding: 0 5px; font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .w-fav.is-bump .w-fav__n { animation: none; } }
+
+/* ==========================================================================
+   Шапка по замечаниям SEO (19.11)
+   1) «Заказать торт»: desktop — кнопка в конце строки меню; tablet/mobile — первая ссылка в верхней полосе.
+   2) Закрепление: после прокрутки шапка фиксируется сверху в компактном виде
+      (без верхней строки, на тёмной подложке); у верха страницы — как в макете.
+   ========================================================================== */
+.hdr__row .w-cake { height: 38px; padding: 0 18px; font-size: 14px; }
+@media (min-width: 1200px) {
+  .hdr__row { right: 72px; }
+  .hdr__row .w-cake { margin-top: -10px; margin-left: 4px; }
+}
+@media (min-width: 640px) and (max-width: 1199px) {
+  .hdr__t-dlv { display: none; }
+  .hdr__t-cake { flex-basis: 238px !important; font-weight: 500; }
+}
+@media (max-width: 639px) {
+  .hdr__top-in { gap: 18px; }
+  .hdr__t-cake { font-weight: 500; }
+}
+.hdr-stuck .hdr {
+  position: fixed;
+  height: calc(var(--zc-header-h) - var(--hdr-top-h));
+  background: rgba(87, 84, 77, .96);
+  box-shadow: 0 6px 24px rgba(39, 30, 27, .16);
+  animation: hdr-in .3s ease;
+}
+/* desktop: верхняя строка прячется, шапка становится ниже; tablet/mobile: полоса с «Заказать торт» остаётся */
+:root { --hdr-top-h: 0px; }
+@media (min-width: 1200px) {
+  :root { --hdr-top-h: 40px; }
+  .hdr-stuck .hdr__top { display: none; }
+  .hdr-stuck .hdr__logo, .hdr-stuck .hdr__row { translate: 0 calc(-1 * var(--hdr-top-h)); }
+}
+@keyframes hdr-in { from { transform: translateY(-100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hdr-stuck .hdr { animation: none; } }
+/* 1200–1365: строка меню + «Заказать торт» не помещаются по макетным отступам — компактный вариант */
+@media (min-width: 1200px) and (max-width: 1365px) {
+  .hdr__top-in { padding-left: 72px; padding-right: 72px; gap: 32px; }
+  .hdr__top-in > * { flex-basis: auto !important; }
+  .hdr__row { left: 290px; }
+  .hdr__row .w-catalog { flex-basis: auto; margin-right: 24px; }
+  .hdr__catalog span { margin-right: 10px; }
+  .hdr__catalog .hdr__chev { margin-right: 0; }
+  .hdr__row .w-delivery, .hdr__row .w-events { flex-basis: auto; margin-right: 24px; }
+  .hdr__row .w-delivery .only-d { display: none !important; }
+  .hdr__row .w-delivery .only-t { display: inline !important; }
+  .hdr__row .w-contacts { flex-basis: auto; }
+  .hdr__row .w-search { flex-basis: auto; margin-right: 16px; }
+  .hdr__row .w-fav { margin-right: 4px; }
+  .hdr__row .w-call { margin-right: 10px; }
+  .hdr__row .w-cart { flex-basis: auto; margin-right: 16px; }
+}

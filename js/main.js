@@ -72,7 +72,7 @@
       var items = ZC.fav.get(), n = items.length;
       favList.innerHTML = items.map(function (i) {
         return '<article class="pcard fav-card" data-id="' + fesc(i.id) + '">' +
-          '<a class="pcard__ph" href="' + fesc(i.href) + '" tabindex="-1" aria-hidden="true">' + (i.img ? '<img src="' + fesc(i.img) + '" alt="" loading="lazy">' : '') + '</a>' +
+          '<a class="pcard__ph" href="' + fesc(i.href) + '" tabindex="-1" aria-hidden="true">' + (i.img ? '<img src="' + fesc(i.img) + '" alt="' + fesc(i.type ? i.type + ' «' + i.name + '»' : i.name) + '" loading="lazy">' : '') + '</a>' +
           '<button class="fav-card__del" type="button" data-fav-del aria-label="Убрать «' + fesc(i.name) + '» из избранного" title="Убрать из избранного"></button>' +
           '<p class="pcard__type">' + fesc(i.type) + '</p>' +
           '<h3 class="pcard__name"><a href="' + fesc(i.href) + '">' + fesc(i.name) + '</a></h3>' +
@@ -122,18 +122,57 @@
     var receive = function () { var r = form && form.querySelector('input[name="receive"]:checked'); return r ? r.value : 'pickup'; };
     var goods = function () { return ZC.cart.get().reduce(function (s, i) { return s + (+i.price || 0) * (+i.qty || 1); }, 0); };
 
+    /* Промокоды: код → скидка в % от суммы товаров. Порог бесплатной доставки считается после скидки.
+       TODO: сроки и условия («на первый заказ») проверяет менеджер; актуальные коды — у заказчика. */
+    var PROMO = { 'ПРИВЕТ10': { pct: 10, note: '10% на первый заказ' } };
+    var PROMO_KEY = 'zc-promo';
+    var promoCode = function () { try { var c = localStorage.getItem(PROMO_KEY); return PROMO[c] ? c : ''; } catch (e) { return ''; } };
+    var amounts = function () {
+      var g = goods(), code = promoCode(), disc = code ? Math.round(g * PROMO[code].pct / 100) : 0, net = g - disc;
+      return { g: g, code: code, disc: disc, net: net, free: net >= CO.freeFrom };
+    };
+
     var renderSum = function () {
       if (!form) return;
-      var g = goods(), n = ZC.cart.count(), courier = receive() === 'courier', free = g >= CO.freeFrom;
+      var a = amounts(), n = ZC.cart.count(), courier = receive() === 'courier';
       $('[data-sum-qty]').textContent = 'Товары, ' + n + ' шт';
-      $('[data-sum-goods]').textContent = rub(g);
-      $('[data-sum-receive]').textContent = !courier ? 'Самовывоз · бесплатно' : free ? 'Курьер · бесплатно' : 'Курьер · рассчитает менеджер';
-      var left = CO.freeFrom - g;
+      $('[data-sum-goods]').textContent = rub(a.g);
+      $('[data-sum-disc-row]').hidden = !a.disc;
+      $('[data-sum-disc-label]').textContent = a.code ? 'Промокод ' + a.code : 'Скидка';
+      $('[data-sum-disc]').textContent = '−' + rub(a.disc);
+      $('[data-sum-receive]').textContent = !courier ? 'Самовывоз · бесплатно' : a.free ? 'Курьер · бесплатно' : 'Курьер · рассчитает менеджер';
+      var left = CO.freeFrom - a.net;
       $('[data-free-text]').textContent = left > 0 ? 'До бесплатной доставки курьером — ' + rub(left) : 'Доставка курьером — бесплатно  ✓';
-      $('[data-free-bar]').style.width = Math.min(100, g / CO.freeFrom * 100) + '%';
+      $('[data-free-bar]').style.width = Math.min(100, a.net / CO.freeFrom * 100) + '%';
       $('[data-free]').classList.toggle('is-done', left <= 0);
-      $('[data-cart-total]').textContent = rub(g) + (courier && !free ? ' + доставка' : '');
+      $('[data-cart-total]').textContent = rub(a.net) + (courier && !a.free ? ' + доставка' : '');
     };
+
+    /* --- поле промокода --- */
+    var pIn = $('[data-promo-input]'), pBtn = $('[data-promo-apply]'), pMsg = $('[data-promo-msg]');
+    var paintPromo = function (msg, bad) {
+      var code = promoCode();
+      if (pIn) { pIn.value = code || pIn.value; pIn.readOnly = !!code; }
+      if (pBtn) pBtn.textContent = code ? 'Убрать' : 'Применить';
+      if (pMsg) {
+        pMsg.hidden = !(msg || code);
+        pMsg.textContent = msg || (code ? 'Применён: ' + PROMO[code].note + '. Условия подтвердит менеджер.' : '');
+        pMsg.classList.toggle('is-bad', !!bad);
+      }
+    };
+    if (pIn && pBtn) {
+      var applyPromo = function () {
+        if (promoCode()) { try { localStorage.removeItem(PROMO_KEY); } catch (e) {} pIn.value = ''; paintPromo(); renderSum(); return; }
+        var c = pIn.value.trim().toUpperCase().replace(/\s+/g, '');
+        if (!c) { paintPromo('Введите промокод', true); return; }
+        if (!PROMO[c]) { paintPromo('Такого промокода нет — проверьте написание', true); return; }
+        try { localStorage.setItem(PROMO_KEY, c); } catch (e) {}
+        paintPromo(); renderSum();
+      };
+      pBtn.addEventListener('click', applyPromo);
+      pIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); applyPromo(); } });
+      paintPromo();
+    }
 
     var renderCart = function () {
       if (sent) return;
@@ -141,7 +180,7 @@
       cartList.innerHTML = items.map(function (i) {
         var sum = (+i.price || 0) * (+i.qty || 1);
         return '<article class="cart-item" data-id="' + esc(i.id) + '">' +
-          '<a class="cart-item__ph" href="' + esc(i.href) + '">' + (i.img ? '<img src="' + esc(i.img) + '" alt="">' : '') + '</a>' +
+          '<a class="cart-item__ph" href="' + esc(i.href) + '">' + (i.img ? '<img src="' + esc(i.img) + '" alt="' + esc(i.name) + '">' : '') + '</a>' +
           '<div class="cart-item__info">' +
             '<h2 class="cart-item__name"><a href="' + esc(i.href) + '">' + esc(i.name) + '</a></h2>' +
             '<p class="cart-item__meta">' + esc(i.type) + (i.fmt ? '  ·  ' + esc(i.fmt) : '') + '</p>' +
@@ -219,7 +258,7 @@
           return;
         }
         err.hidden = true;
-        var g = goods(), free = g >= CO.freeFrom, now = new Date();
+        var am = amounts(), free = am.free, now = new Date();
         var pad = function (n, l) { n = String(n); while (n.length < l) n = '0' + n; return n; };
         var id = 'ЗЦ-' + pad(now.getDate(), 2) + pad(now.getMonth() + 1, 2) + '-' + pad(now.getHours(), 2) + pad(now.getMinutes(), 2) + Math.floor(Math.random() * 10);
         var lines = items.map(function (i) { return i.name + ', ' + i.fmt + ' × ' + i.qty + ' — ' + rub(i.price * i.qty); });
@@ -227,7 +266,9 @@
         var recv = courier ? 'Курьер, ' + day.value + (free ? ' (бесплатно)' : ' (доставка — рассчитать)') : 'Самовывоз, ТРК «Гранд Каньон», ' + day.value;
         var channel = form.querySelector('input[name="channel"]:checked').value;
         var data = {
-          order_id: id, items: lines.join('\n'), total: rub(g) + (courier && !free ? ' + доставка' : ''),
+          order_id: id, items: lines.join('\n'),
+          promo: am.code ? am.code + ' (−' + rub(am.disc) + ')' : '',
+          total: rub(am.net) + (courier && !free ? ' + доставка' : ''),
           receive: recv, address: addr, name: form.elements.name.value.trim(), phone: form.elements.phone.value.trim(),
           channel: channel, comment: form.elements.comment.value.trim(), consent: 'да'
         };
@@ -237,7 +278,8 @@
           $('[data-done-num]').textContent = 'ЗАКАЗ  ' + id;
           $('[data-done-channel]').textContent = channel === 'Telegram' ? 'напишет в Telegram' : 'позвонит';
           $('[data-done-phone]').textContent = data.phone;
-          $('[data-done-list]').innerHTML = lines.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('');
+          $('[data-done-list]').innerHTML = lines.concat(am.code ? ['Промокод ' + am.code + ' — −' + rub(am.disc)] : []).map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('');
+          try { localStorage.removeItem(PROMO_KEY); } catch (e) {}
           $('[data-done-receive]').textContent = recv + (addr ? ' · ' + addr : '');
           $('[data-done-total]').textContent = data.total;
           document.body.classList.add('co-sent');

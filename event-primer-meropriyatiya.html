@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Так будет выглядеть анонс мероприятия — Зелёное Царство</title>
+  <meta name="description" content="Шаблон для дегустаций, мастер-классов и встреч: дата, время, место и запись — в блоке «Коротко».">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@250&family=Onest:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/tokens.css?v=11190229">
+  <link rel="stylesheet" href="css/base.css?v=11190229">
+  <link rel="stylesheet" href="css/components.css?v=11190229">
+  <link rel="stylesheet" href="css/components-v2.css?v=11190229">
+  <link rel="stylesheet" href="css/pages.css?v=11190229">
+  <link rel="stylesheet" href="css/pages-v2.css?v=11190229">
+</head>
+<body class="hdr-solid">
+  <!-- Страница собрана tools/build-events.html из js/events.js — правки вносить в js/events.js и пересобирать -->
+  <div data-zc="header"></div>
+  <div data-zc="menu"></div>
+
+  <main class="ev wrap is-event is-example">
+    <nav class="crumbs lg__crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a>  /  <a href="events.html">Мероприятия</a>  /  <span aria-current="page">Так будет выглядеть анонс мероприятия</span></nav>
+
+    <header class="ev__head">
+      <p class="ev__tag">МЕРОПРИЯТИЕ  ·  ПРИМЕР</p>
+      <h1 class="display display--m ev__title">Так будет выглядеть анонс мероприятия</h1>
+      <p class="ev__lead">Шаблон для дегустаций, мастер-классов и встреч: дата, время, место и запись — в блоке «Коротко».</p>
+    </header>
+
+    <figure class="ev__cover"><img src="img/eskimo-2.webp" alt="Так будет выглядеть анонс мероприятия"></figure>
+
+    <div class="ev__layout">
+      <article class="lg__text ev__body">
+        <p>Это пример страницы мероприятия. Когда заказчик пришлёт реальное событие, здесь будет его описание: что произойдёт, для кого оно и что взять с собой.</p>
+        <h2>Как будет устроено</h2>
+        <ul><li>Дата, время и место — в блоке «Коротко» справа (на телефоне — под заголовком).</li><li>Кнопка «Записаться» ведёт к звонку или в Telegram.</li><li>Программу можно расписать списком, как этот.</li></ul>
+        <p>Мероприятия стоят в списке первыми, новости идут следом — без вкладок.</p>
+      </article>
+
+      <aside class="ev__aside" aria-label="Коротко">
+        <div class="ev__card">
+          <p class="ev__card-label">КОРОТКО</p>
+          <dl class="ev__facts"><div><dt>Дата</dt><dd>Дата уточняется</dd></div><div><dt>Время</dt><dd>Время уточняется</dd></div><div><dt>Место</dt><dd>ТРК «Гранд Каньон», пр. Энгельса, 154 · 1 этаж</dd></div><div><dt>Участие</dt><dd>Условия участия уточняются</dd></div></dl>
+          <a class="btn btn--primary ev__cta" href="tel:+79893573333">Записаться по телефону</a>
+          <div class="ev__more"><a class="link-arrow" href="https://t.me/zelenoetsarstvo" target="_blank" rel="noopener">Написать в Telegram  ↗</a></div>
+        </div>
+        <a class="ev__back" href="events.html">← Все мероприятия</a>
+      </aside>
+    </div>
+
+    <section class="ev__related" aria-labelledby="ev-rel">
+      <h2 class="ev__related-title" id="ev-rel">Ещё материалы</h2>
+      <div class="ngrid">
+          <article class="ncard"><a class="ncard__ph" href="event-bento-k-prazdniku.html" tabindex="-1" aria-hidden="true"><img src="img/tropicheskoe-naslazhdenie-600.webp" alt="Бенто-торты к празднику" loading="lazy"></a><p class="ncard__tag">НОВОСТИ  ·  НА ЗАКАЗ</p><h2 class="ncard__title"><a href="event-bento-k-prazdniku.html">Бенто-торты к празднику</a></h2><p class="ncard__lead">Принимаем заявки на бенто «Тропическое наслаждение» 500 г. Оформление и надпись обсуждаем с менеджером.</p><a class="link-arrow" href="event-bento-k-prazdniku.html">Читать  ↗</a></article>
+          <article class="ncard"><a class="ncard__ph" href="event-samovyvoz.html" tabindex="-1" aria-hidden="true"><img src="img/solnechnaya-radost-600.webp" alt="Самовывоз в ТРК «Гранд Каньон»" loading="lazy"></a><p class="ncard__tag">НОВОСТИ  ·  САМОВЫВОЗ</p><h2 class="ncard__title"><a href="event-samovyvoz.html">Самовывоз в ТРК «Гранд Каньон»</a></h2><p class="ncard__lead">Заказ можно забрать в ТРК «Гранд Каньон» на проспекте Энгельса. Перед поездкой согласуйте готовность.</p><a class="link-arrow" href="event-samovyvoz.html">Читать  ↗</a></article>
+          <article class="ncard"><a class="ncard__ph" href="event-razmer-porcii.html" tabindex="-1" aria-hidden="true"><img src="img/limon-600.webp" alt="Как выбрать размер порции" loading="lazy"></a><p class="ncard__tag">ВЫБОР ДЕСЕРТА</p><h2 class="ncard__title"><a href="event-razmer-porcii.html">Как выбрать размер порции</a></h2><p class="ncard__lead">Сравниваем доступные веса и цены в карточке товара — на примере пирожных.</p><a class="link-arrow" href="event-razmer-porcii.html">Читать  ↗</a></article>
+      </div>
+    </section>
+  </main>
+
+  <div data-zc="footer"></div>
+  <script src="js/layout.js?v=11190229"></script>
+</body>
+</html>
