@@ -738,11 +738,15 @@
 }
 @media (prefers-reduced-motion: reduce) { .prod__fav[aria-pressed="true"]::before { animation: none; } }
 
-/* Главная (19.11, SEO): H1 — подпись над слоганом; «Отражение себя» — оформление (p.ttl) */
-.hero__h1 { font-size: 14px; line-height: 19px; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; }
-@media (min-width: 1200px) { .hero__h1 { margin: 0 0 20px -6px; } }
-@media (min-width: 640px) and (max-width: 1199px) { .hero__h1 { margin: 0 0 16px 1px; font-size: 13px; line-height: 18px; } }
-@media (max-width: 639px) { .hero__h1 { margin: 0 0 14px; font-size: 12px; line-height: 17px; } }
+/* Главная (19.11, SEO): H1 «Десерты без сахара и глютена в Санкт-Петербурге» — главный display-заголовок
+   на месте слогана (Noto Serif Display 250 до появления веб-шрифта Panama, как .display) */
+.hero__h1 { font-family: var(--zc-font-display-web); font-weight: 250; letter-spacing: -0.005em; text-wrap: balance; }
+@media (min-width: 1200px) { .hero__h1 { margin-left: -4px; max-width: 980px; font-size: 92px; line-height: 104px; } }
+@media (min-width: 640px) and (max-width: 1199px) { .hero__h1 { max-width: 640px; font-size: 64px; line-height: 74px; } }
+@media (max-width: 639px) {
+  .hero__h1 { font-size: min(40px, 8.8vw); line-height: 1.18; }
+  .hero__h1 + .hero__text { margin-top: 40px; }
+}
 
 /* Каталог как хаб «Десерты» (19.11): заголовок-SVG «Десерты» в шапке листинга — масштабы как у «Пирожных» */
 @media (min-width: 640px) and (max-width: 1199px) { .listing__head .ttl--deserty { --s: .74; } }
