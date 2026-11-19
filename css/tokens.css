@@ -27,12 +27,10 @@
 
   /* ---------- Шрифты ---------- */
   --zc-font: "Onest", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  /* Заголовочный шрифт макета — Panama (в Figma «Panama Trial»).
-     Пока лицензии нет, крупные заголовки отдаются SVG-кривыми (assets/titles).
-     Когда появится веб-файл шрифта — положить в assets/fonts и подключить в base.css. */
-  --zc-font-display: "Panama", "Panama Trial", Georgia, "Times New Roman", serif;
-  /* Временная замена Panama для заголовков-текстом (страницы v2) */
-  --zc-font-display-web: "Panama", "Noto Serif Display", Georgia, serif;
+  /* Заголовочный шрифт макета — Panama Regular (fonts/Panama-Regular.ttf, @font-face в base.css).
+     Все заголовки — текст (.ttl, .display, .hero__h1), начертание только Regular (400). */
+  --zc-font-display: "Panama", Georgia, "Times New Roman", serif;
+  --zc-font-display-web: var(--zc-font-display);
 
   /* ---------- Добавлено в макете 12.11 ---------- */
   --zc-line-2: #d4ccc2;   /* разделители подвала, контактов, таблицы КБЖУ */

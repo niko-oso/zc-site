@@ -67,9 +67,7 @@
         '<a class="menu__search" href="search.html">Поиск по товарам  ⌕</a>' +
         '<div class="menu__rule menu__rule--top only-m"></div>' +
         '<div class="menu__head">' +
-          '<h2 class="ttl ttl--katalog"><span class="sr-only">Каталог</span>' +
-            '<img class="hide-m" src="' + A + 'titles/katalog.svg" alt="Каталог" aria-hidden="true">' +
-            '<img class="only-m" src="' + A + 'titles/katalog-light.svg" alt="Каталог" aria-hidden="true">' +
+          '<h2 class="ttl ttl--katalog"><span class="ttl__t">Каталог</span>' +
           '</h2>' +
           '<p class="menu__lead">Выберите категорию или откройте весь каталог.</p>' +
         '</div>' +

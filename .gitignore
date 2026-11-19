@@ -4,3 +4,7 @@ img/*
 # Тяжёлые исходники из Figma — на сайте используются webp-версии
 assets/img/*.png
 assets/img/*.jpg
+
+# шрифты: на сайте используется только Panama-Regular.ttf
+fonts/*
+!fonts/Panama-Regular.ttf

@@ -75,12 +75,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):
 .c-muted { color: var(--zc-muted); }
 
 /* ==========================================================================
-   Display-заголовки (шрифт Panama)
-   Пока нет веб-шрифта, заголовок = SVG-кривые из Figma.
-   .ttl повторяет текстовый бокс из макета (--bw × --bh), а картинка внутри
-   стоит со смещением глифов (--ox/--oy) — так позиции совпадают 1 в 1.
+   Display-заголовки — шрифт Panama Regular (как в Figma), обычный текст.
+   .ttl повторяет текстовый бокс из макета (--bw × --bh); внутри .ttl__t —
+   текст размера --fs с интерлиньяжем --lh (значения desktop, px макета).
    --s — масштаб относительно desktop (задаётся на tablet/mobile).
+   --tw — ширина строки в em: если боксу не хватает места (экраны уже макетных
+   1440/768/390), кегль уменьшается так, чтобы строка влезла целиком.
    ========================================================================== */
+@font-face {
+  font-family: "Panama";
+  src: url("../fonts/Panama-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 .ttl {
   --s: 1;
   position: relative;
@@ -90,36 +98,32 @@ a:focus-visible, button:focus-visible, summary:focus-visible, label:not(.field):
   max-width: 100%;
   height: calc(var(--bh) * var(--s) * 1px);
   margin: 0;
+  font-family: var(--zc-font-display);
   font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  white-space: nowrap;
   container-type: inline-size; /* 100cqw = фактическая ширина бокса заголовка */
 }
-/* Масштаб как в макете (--s), но если глифам не хватает ширины контейнера
-   (экраны уже макетных 1440/768/390) — картинка ужимается до ширины бокса. */
-.ttl > img {
-  position: absolute;
-  left: min(calc(var(--ox, 0) * var(--s) * 1px), calc(100cqw * var(--ox, 0) / (var(--ox, 0) + var(--iw))));
-  top: min(calc(var(--oy, 0) * var(--s) * 1px), calc(100cqw * var(--oy, 0) / (var(--ox, 0) + var(--iw))));
-  width: min(calc(var(--iw) * var(--s) * 1px), calc(100cqw * var(--iw) / (var(--ox, 0) + var(--iw))));
-  height: auto;
-  max-width: none;
-  pointer-events: none;
-  user-select: none;
+.ttl__t {
+  display: block;
+  font-size: min(calc(var(--fs) * var(--s) * 1px), calc(100cqw / var(--tw)));
+  line-height: calc(var(--lh) / var(--fs));
 }
-/* Реестр заголовков: бокс текста в Figma + смещение и ширина SVG */
-.ttl--otrazhenie { --bw: 588;     --bh: 230.05; --ox: 4.96; --oy: 7.30;  --iw: 577; }
-.ttl--bud        { --bw: 366.954; --bh: 78.009; --ox: 3.10; --oy: 8.80;  --iw: 149; }
-.ttl--soboi      { --bw: 366.954; --bh: 78.009; --ox: 3.48; --oy: 7.64;  --iw: 194; }
-.ttl--zaryadis   { --bw: 330;     --bh: 78.009; --ox: 3.10; --oy: 7.64;  --iw: 313; }
-.ttl--tvori      { --bw: 366.954; --bh: 78.009; --ox: 2.71; --oy: 25.84; --iw: 196; }
-.ttl--deserty    { --bw: 588;     --bh: 115.02; --ox: 0.96; --oy: 20.8;  --iw: 348; }
-.ttl--pirozhnye  { --bw: 588;     --bh: 115.02; --ox: 3.84; --oy: 20.8;  --iw: 408; }
-.ttl--korzina    { --bw: 770;     --bh: 115.02; --ox: 3.84; --oy: 20.8;  --iw: 344; }
-.ttl--rozovyj    { --bw: 526.11;  --bh: 87.21;                            --iw: 527; }
-.ttl--dostavka   { --bw: 788.4;   --bh: 110.16;                           --iw: 789; }
-.ttl--katalog    { --bw: 278;     --bh: 90;                               --iw: 278; }
-.ttl--vse        { --bw: 483;     --bh: 113;                              --iw: 483; }
-.ttl--otzyvy     { --bw: 224;     --bh: 83;     --ox: 3.25; --oy: 15.83; --iw: 217; }
-.ttl--kontakty   { --bw: 368;     --bh: 101;    --ox: 5.23; --oy: 20.54; --iw: 356.9; }
+/* Реестр: бокс в Figma (--bw/--bh), кегль/интерлиньяж (--fs/--lh), ширина строки в em (--tw).
+   У заголовков, которые в макете были кривыми, кегль и интерлиньяж подобраны по их размеру и положению. */
+.ttl--bud        { --bw: 366.954; --bh: 78.009; --fs: 77.42; --lh: 78.01;  --tw: 2.00; }
+.ttl--soboi      { --bw: 366.954; --bh: 78.009; --fs: 77.42; --lh: 78.01;  --tw: 2.59; }
+.ttl--zaryadis   { --bw: 330;     --bh: 78.009; --fs: 77.42; --lh: 78.01;  --tw: 4.30; }
+.ttl--tvori      { --bw: 366.954; --bh: 78.009; --fs: 77.42; --lh: 78.01;  --tw: 2.61; }
+.ttl--deserty    { --bw: 588;     --bh: 115.02; --fs: 96;    --lh: 115.02; --tw: 3.68; }
+.ttl--pirozhnye  { --bw: 588;     --bh: 115.02; --fs: 96;    --lh: 115.02; --tw: 4.34; }
+.ttl--korzina    { --bw: 770;     --bh: 115.02; --fs: 96;    --lh: 115.02; --tw: 3.67; }
+.ttl--rozovyj    { --bw: 536;     --bh: 87.21;  --fs: 76;    --lh: 62.3;   --tw: 7.02; }
+.ttl--dostavka   { --bw: 796;     --bh: 110.16; --fs: 94.5;  --lh: 73.7;   --tw: 8.39; }
+.ttl--katalog    { --bw: 284;     --bh: 90;     --fs: 78.4;  --lh: 61.2;   --tw: 3.61; }
+.ttl--otzyvy     { --bw: 224;     --bh: 83;     --fs: 70;    --lh: 89.06;  --tw: 3.17; }
+.ttl--kontakty   { --bw: 368;     --bh: 101;    --fs: 85.5;  --lh: 107.8;  --tw: 4.25; }
 
 /* Длинные слова и адреса (https://…) переносятся, а не раздвигают страницу */
 body { overflow-wrap: break-word; }
@@ -127,10 +131,6 @@ body { overflow-wrap: break-word; }
 
 /* Старые браузеры без container queries (Safari < 16): ужимаем заголовок по ширине экрана минус поля */
 @supports not (container-type: inline-size) {
-  .ttl > img {
-    left: min(calc(var(--ox, 0) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--ox, 0) / (var(--ox, 0) + var(--iw))));
-    top: min(calc(var(--oy, 0) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--oy, 0) / (var(--ox, 0) + var(--iw))));
-    width: min(calc(var(--iw) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) * var(--iw) / (var(--ox, 0) + var(--iw))));
-  }
+  .ttl__t { font-size: min(calc(var(--fs) * var(--s) * 1px), calc((100vw - 2 * var(--zc-gutter)) / var(--tw))); }
 }
 .nowrap { white-space: nowrap; }

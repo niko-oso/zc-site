@@ -3,26 +3,23 @@
    (подключается после components.css)
    ========================================================================== */
 
-/* ---------- Display-заголовок текстом ----------
-   Пока нет веб-шрифта Panama, используется Noto Serif Display 250 —
-   ближайшая бесплатная антиква (высота заглавных совпадает с Panama).
-   Когда появится Panama — подключить в base.css, токен --zc-font-display-web
-   уже начинается с "Panama". */
+/* ---------- Display-заголовок текстом (Panama Regular) ----------
+   Размеры как у заголовков страниц в макете: 96/115 · 71/85 · 41/49. */
 .display {
   font-family: var(--zc-font-display-web);
-  font-weight: 250;
-  font-size: 92px;
+  font-weight: 400;
+  font-size: 96px;
   line-height: 115px;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
   color: inherit;
 }
 .display--m { font-size: 64px; line-height: 76px; }
 @media (min-width: 640px) and (max-width: 1199px) {
-  .display { font-size: 68px; line-height: 82px; }
+  .display { font-size: 71px; line-height: 85px; }
   .display--m { font-size: 52px; line-height: 62px; }
 }
 @media (max-width: 639px) {
-  .display { font-size: 44px; line-height: 52px; }
+  .display { font-size: 41px; line-height: 49px; }
   .display--m { font-size: 38px; line-height: 46px; }
 }
 

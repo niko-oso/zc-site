@@ -55,7 +55,8 @@
 .tile__label { top: calc(33 * var(--u)); font-size: calc(12 * var(--u)); line-height: calc(17 * var(--u)); }
 .tile__more  { top: calc(673.5 * var(--u)); font-size: calc(14 * var(--u)); line-height: calc(19 * var(--u)); }
 .tile .ttl { position: absolute; width: calc(var(--bw) * var(--u)); height: calc(var(--bh) * var(--u)); }
-.tile .ttl > img { left: calc(var(--ox) * var(--u)); top: calc(var(--oy) * var(--u)); width: calc(var(--iw) * var(--u)); }
+.tile .ttl { container-type: normal; }  /* кегль считается от ширины плитки (--u), а не от бокса */
+.tile .ttl__t { font-size: calc(var(--fs) * var(--u)); }
 .tile .ttl--bud      { left: calc(87 * var(--u));     top: calc(485 * var(--u)); }
 .tile .ttl--soboi    { left: calc(140.05 * var(--u)); top: calc(548.03 * var(--u)); }
 .tile .ttl--zaryadis { left: calc(253 * var(--u));    top: calc(524 * var(--u)); }
@@ -72,12 +73,13 @@
   .tile__label, .tile__more { left: 18px; font-weight: 400; }
   .tile__label { top: 20px; font-size: 10px; line-height: normal; }
   .tile__more  { top: 319px; font-size: 13px; line-height: normal; }
-  .tile .ttl { --s: .5538; width: calc(var(--bw) * var(--s) * 1px); height: calc(var(--bh) * var(--s) * 1px); }
-  .tile .ttl > img { left: calc(var(--ox) * var(--s) * 1px); top: calc(var(--oy) * var(--s) * 1px); width: calc(var(--iw) * var(--s) * 1px); }
-  .tile .ttl--bud      { left: 37px;     top: 224px; }
-  .tile .ttl--soboi    { left: 66.38px;  top: 258.91px; }
-  .tile .ttl--zaryadis { left: 130.87px; top: 239px; }
-  .tile .ttl--tvori    { left: 110px;    top: 274.39px; }
+  /* --k = 1px на плитке 346 (макет 390); на узких экранах подписи ужимаются вместе с плиткой */
+  .tile .ttl { --s: .5538; --k: min(1px, calc(100cqw / 346)); width: calc(var(--bw) * var(--s) * var(--k)); height: calc(var(--bh) * var(--s) * var(--k)); }
+  .tile .ttl__t { font-size: calc(var(--fs) * var(--s) * var(--k)); }
+  .tile .ttl--bud      { left: calc(37 * var(--k));     top: 224px; }
+  .tile .ttl--soboi    { left: calc(66.38 * var(--k));  top: 258.91px; }
+  .tile .ttl--zaryadis { left: calc(130.87 * var(--k)); top: 239px; }
+  .tile .ttl--tvori    { left: calc(110 * var(--k));    top: 274.39px; }
 }
 
 /* ---- Раздел «Десерты» ---- */
@@ -171,7 +173,6 @@
   .listing__head .crumbs { top: 152px; }
   .listing__head .ttl { top: 228px; }
   .listing__head .ttl--pirozhnye { --s: .74; }
-  .listing__head .ttl--vse { --s: .7516; }
   .listing__desc { top: 355px; left: 1px; width: 600px; font-size: 17px; line-height: 23px; }
   .pgrid { margin-top: 47px; }
   .listing__note { margin-top: 128px; padding-bottom: 199px; font-size: 15px; line-height: 21px; color: var(--zc-muted); }
@@ -180,7 +181,6 @@
   .listing__head { height: 568px; }
   .listing__head .crumbs { top: 112px; }
   .listing__head .ttl--pirozhnye { top: 248px; --s: .43; }
-  .listing__head .ttl--vse { top: 194px; --s: .4617; }
   .listing__desc { top: 308px; width: 346px; font-size: 16px; line-height: 22px; }
   .listing--category .listing__desc { width: 290px; }
   .pgrid { margin-top: 40px; }
@@ -739,8 +739,8 @@
 @media (prefers-reduced-motion: reduce) { .prod__fav[aria-pressed="true"]::before { animation: none; } }
 
 /* Главная (19.11, SEO): H1 «Десерты без сахара и глютена в СПб» — главный display-заголовок
-   на месте слогана (Noto Serif Display 300 до появления веб-шрифта Panama, как .display) */
-.hero__h1 { font-family: var(--zc-font-display-web); font-weight: 300; letter-spacing: -0.005em; text-wrap: balance; }
+   на месте слогана (Panama Regular, как .display) */
+.hero__h1 { font-family: var(--zc-font-display-web); font-weight: 400; letter-spacing: 0; text-wrap: balance; }
 @media (min-width: 1200px) { .hero__h1 { margin-left: -4px; max-width: 860px; font-size: 80px; line-height: 92px; } }
 @media (min-width: 640px) and (max-width: 1199px) { .hero__h1 { max-width: 580px; font-size: 56px; line-height: 66px; } }
 @media (max-width: 639px) {
