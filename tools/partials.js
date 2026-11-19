@@ -74,7 +74,7 @@
           '<p class="menu__lead">Выберите категорию или откройте весь каталог.</p>' +
         '</div>' +
         '<div class="menu__rule hide-m"></div>' +
-        '<a class="menu__all only-m" href="catalog.html">Все десерты  ↗</a>' +
+        '<a class="menu__all only-m" href="catalog.html">Все товары  ↗</a>' +
         '<div class="menu__cols">' +
           '<div class="menu__col menu__col--desserts"><h3>ДЕСЕРТЫ</h3>' + links(desserts) + '</div>' +
           '<div class="menu__col menu__col--drinks"><h3>НАПИТКИ</h3>' + links(drinks) +
@@ -82,7 +82,7 @@
           '</div>' +
           '<div class="menu__col menu__col--other"><h3>ДРУГОЕ</h3>' + links(other) + '</div>' +
         '</div>' +
-        '<a class="menu__all hide-m" href="catalog.html"><span class="only-d">Смотреть все десерты  ↗</span><span class="only-t">Все десерты  ↗</span></a>' +
+        '<a class="menu__all hide-m" href="catalog.html"><span class="only-d">Смотреть все товары  ↗</span><span class="only-t">Все товары  ↗</span></a>' +
         '<div class="menu__foot">' +
           '<a href="delivery.html">Доставка и оплата  ↗</a>' +
           '<div class="menu__contacts">' +
@@ -112,7 +112,7 @@
   var footer =
     '<footer class="ftr"><div class="ftr__in">' +
       '<div class="ftr__cols">' +
-        '<div class="ftr__col"><h3><a href="catalog.html">Десерты</a></h3>' +
+        '<div class="ftr__col"><h3><a href="catalog.html">Каталог</a></h3>' +
           '<ul class="hide-m"><li><a href="category.html">Пирожные</a></li><li><a href="catalog.html">Конфеты и трюфели</a></li>' +
           '<li><a href="catalog.html">Бенто-торты</a></li><li><a href="catalog.html">Наборы и подарки</a></li><li><a href="catalog.html">Смузи и соки</a></li></ul>' +
           '<p class="ftr__line only-m"><a href="category.html">Пирожные</a>  ·  <a href="catalog.html">Конфеты</a>  ·  <a href="catalog.html">Бенто-торты</a>\n' +
