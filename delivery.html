@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Доставка и оплата — Зелёное Царство</title>
-  <meta name="description" content="Доставка десертов «Зелёного Царства» по Санкт-Петербургу: курьер по вторникам и пятницам, бесплатно от 2 000 ₽; самовывоз из ТРК «Гранд Каньон» с 10:00 до 19:00. Оплата и условия.">
+  <meta name="description" content="Доставка десертов «Зелёного Царства» по Санкт-Петербургу: курьер по вторникам и пятницам, бесплатно от 2 000 ₽; самовывоз из ТРК «Гранд Каньон» ежедневно с 10:00 до 19:00. Зоны и стоимость доставки, интервалы, способы оплаты.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap">
-  <link rel="stylesheet" href="css/tokens.css?v=11190508">
-  <link rel="stylesheet" href="css/base.css?v=11190508">
-  <link rel="stylesheet" href="css/components.css?v=11190508">
-  <link rel="stylesheet" href="css/pages.css?v=11190508">
+  <link rel="stylesheet" href="css/tokens.css?v=11190532">
+  <link rel="stylesheet" href="css/base.css?v=11190532">
+  <link rel="stylesheet" href="css/components.css?v=11190532">
+  <link rel="stylesheet" href="css/pages.css?v=11190532">
 </head>
 <body class="is-stone">
   <!-- zc:header -->
@@ -48,32 +48,33 @@
       </section>
     </div>
 
-    <!-- Условия (19.11, по замечаниям SEO). TODO: зоны доставки, интервалы, стоимость ниже 2 000 ₽ и способы оплаты уточнить у заказчика -->
+    <!-- Условия (19.11, по замечаниям SEO). ТЕСТОВЫЕ ДАННЫЕ: зоны, интервалы, стоимость ниже 2 000 ₽, способы оплаты
+         и часы выдачи — заглушки для согласования; заменить на данные заказчика (и сверить с корзиной: js/main.js, CO) -->
     <h2 class="faq__title" id="terms">Условия доставки и самовывоза</h2>
     <div class="faq faq--terms">
       <div class="faq__row">
         <h3 class="faq__q">Дни доставки</h3>
-        <p class="faq__a">Вторник и&nbsp;пятница&nbsp;— свой курьер.</p>
+        <p class="faq__a">Вторник и&nbsp;пятница&nbsp;— свой курьер. Заказ на&nbsp;вторник принимаем до&nbsp;18:00 понедельника, на&nbsp;пятницу&nbsp;— до&nbsp;18:00 четверга.</p>
       </div>
       <div class="faq__row">
-        <h3 class="faq__q">Зона доставки</h3>
-        <p class="faq__a">Санкт-Петербург. Границы зоны уточняются&nbsp;— проверьте адрес у&nbsp;менеджера при&nbsp;подтверждении заказа.</p>
+        <h3 class="faq__q">Зоны доставки</h3>
+        <p class="faq__a">Зона&nbsp;1&nbsp;— Приморский, Выборгский, Калининский и&nbsp;Петроградский районы.<br>Зона&nbsp;2&nbsp;— остальные районы Санкт-Петербурга в&nbsp;пределах КАД.<br>Зона&nbsp;3&nbsp;— до&nbsp;10&nbsp;км за&nbsp;КАД: Мурино, Кудрово, Девяткино, Парголово, Шушары.</p>
       </div>
       <div class="faq__row">
-        <h3 class="faq__q">Интервал доставки</h3>
-        <p class="faq__a">Согласует менеджер при&nbsp;подтверждении заказа.</p>
+        <h3 class="faq__q">Интервалы доставки</h3>
+        <p class="faq__a">10:00–14:00, 14:00–18:00 или&nbsp;18:00–21:00. Удобный интервал укажите в&nbsp;комментарии к&nbsp;заказу&nbsp;— менеджер подтвердит его, курьер позвонит за&nbsp;30&nbsp;минут до&nbsp;приезда.</p>
       </div>
       <div class="faq__row">
-        <h3 class="faq__q">Стоимость</h3>
-        <p class="faq__a">Бесплатно при&nbsp;заказе от&nbsp;2&nbsp;000&nbsp;₽. При&nbsp;заказе до&nbsp;2&nbsp;000&nbsp;₽ стоимость доставки рассчитает менеджер.</p>
+        <h3 class="faq__q">Стоимость доставки</h3>
+        <p class="faq__a">Бесплатно при&nbsp;заказе от&nbsp;2&nbsp;000&nbsp;₽ в&nbsp;зонах 1 и&nbsp;2.<br>При&nbsp;заказе до&nbsp;2&nbsp;000&nbsp;₽: зона&nbsp;1&nbsp;—&nbsp;300&nbsp;₽, зона&nbsp;2&nbsp;—&nbsp;400&nbsp;₽.<br>Зона&nbsp;3&nbsp;—&nbsp;600&nbsp;₽ при&nbsp;любой сумме заказа.</p>
       </div>
       <div class="faq__row">
-        <h3 class="faq__q">Самовывоз</h3>
-        <p class="faq__a">Бесплатно. ТРК «Гранд Каньон», пр. Энгельса, 154, 1 этаж. Выдача заказов с&nbsp;10:00 до&nbsp;19:00&nbsp;— время согласуйте с&nbsp;менеджером.</p>
+        <h3 class="faq__q">Самовывоз и&nbsp;часы выдачи</h3>
+        <p class="faq__a">Бесплатно. ТРК «Гранд Каньон», пр.&nbsp;Энгельса, 154, 1&nbsp;этаж.<br>Выдача заказов ежедневно с&nbsp;10:00 до&nbsp;19:00. Заказ готов к&nbsp;выдаче в&nbsp;выбранный день с&nbsp;12:00.</p>
       </div>
       <div class="faq__row">
-        <h3 class="faq__q">Оплата</h3>
-        <p class="faq__a">После подтверждения заказа: по&nbsp;ссылке на&nbsp;оплату или&nbsp;при&nbsp;получении.</p>
+        <h3 class="faq__q">Способы оплаты</h3>
+        <p class="faq__a">Онлайн по&nbsp;ссылке после подтверждения заказа: банковская карта (МИР, Visa, Mastercard) или&nbsp;СБП.<br>При&nbsp;получении: картой или&nbsp;наличными курьеру и&nbsp;на&nbsp;самовывозе.<br>Для&nbsp;юрлиц&nbsp;— по&nbsp;счёту.</p>
       </div>
       <div class="faq__row">
         <h3 class="faq__q">Нужно сегодня</h3>
@@ -103,7 +104,7 @@
 <a href="catalog.html">Наборы</a>  ·  <a href="catalog.html">Смузи и соки</a></p></div><div class="ftr__col"><h3>Покупателям</h3><ul class="hide-m"><li><a href="delivery.html">Доставка и оплата</a></li><li><a href="how-to-order.html">Как заказать</a></li><li><a href="index.html#reviews">Отзывы</a></li><li><a href="faq.html">Вопросы и ответы</a></li><li><a href="promo.html">Акции</a></li></ul><p class="ftr__line only-m"><a href="delivery.html">Доставка и оплата</a>  ·  <a href="how-to-order.html">Как заказать</a>
 <a href="index.html#reviews">Отзывы</a>  ·  <a href="faq.html">Вопросы и ответы</a>  ·  <a href="promo.html">Акции</a></p></div><div class="ftr__col"><h3>О компании</h3><ul class="hide-m"><li><a href="about.html">О нас</a></li><li><a href="events.html">Мероприятия</a></li></ul><p class="ftr__line only-m"><a href="about.html">О нас</a>  ·  <a href="events.html">Мероприятия</a></p></div><div class="ftr__col ftr__col--contacts"><h3><a href="contacts.html">Контакты</a></h3><div class="ftr__reach"><a href="tel:+79893573333">+7 (989) 357-33-33</a><a href="mailto:zelenoetsarstvo@ya.ru">zelenoetsarstvo@ya.ru</a><p class="ftr__msg"><a href="https://t.me/zelenoetsarstvo" target="_blank" rel="noopener">Telegram ↗</a><a href="https://vk.com/zelenoetsarstvo" target="_blank" rel="noopener">VK ↗</a></p><p class="ftr__addr">ТРК «Гранд Каньон»<span class="ftr__br"> · </span>пр. Энгельса, 154 · 1 этаж</p><a class="ftr__more" href="contacts.html">Все контакты  ↗</a></div></div></div><div class="ftr__legal"><p class="ftr__org"><span>ООО «Зелёное Царство»</span><span class="ftr__sep"> · </span><span>ИНН 7801675671 · ОГРН 1197847240436</span></p><p class="ftr__docs"><a href="offer.html">Оферта</a><a href="policy.html">Политика конфиденциальности</a><a href="cookie.html">Политика cookie</a><a href="consent.html">Согласие на обработку данных</a></p><p class="ftr__copy">© 2026 Зелёное Царство</p></div></div></footer>
   <!-- /zc:footer -->
-  <script src="js/layout.js?v=11190508"></script>
-  <script src="js/main.js?v=11190508"></script>
+  <script src="js/layout.js?v=11190532"></script>
+  <script src="js/main.js?v=11190532"></script>
 </body>
 </html>
