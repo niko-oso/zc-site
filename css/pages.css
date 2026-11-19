@@ -738,7 +738,7 @@
 }
 @media (prefers-reduced-motion: reduce) { .prod__fav[aria-pressed="true"]::before { animation: none; } }
 
-/* Главная (19.11, SEO): H1 «Десерты без сахара и глютена в Санкт-Петербурге» — главный display-заголовок
+/* Главная (19.11, SEO): H1 «Десерты без сахара и глютена в СПб» — главный display-заголовок
    на месте слогана (Noto Serif Display 300 до появления веб-шрифта Panama, как .display) */
 .hero__h1 { font-family: var(--zc-font-display-web); font-weight: 300; letter-spacing: -0.005em; text-wrap: balance; }
 @media (min-width: 1200px) { .hero__h1 { margin-left: -4px; max-width: 860px; font-size: 80px; line-height: 92px; } }
